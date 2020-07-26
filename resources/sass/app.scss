@@ -1,8 +1,16 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
-// Variables
-@import 'variables';
-
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+// Variables
+@import 'base/variables';
+
+// Base
+@import 'base/global';
+@import 'base/utility';
+
+// Includes
+@import 'includes/header';
+@import 'includes/slide_book';
