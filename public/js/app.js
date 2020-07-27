@@ -1989,19 +1989,23 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     buscar: function buscar(text) {
-      var suggestion = this.getSuggestionCache();
+      if (text.length > 0) {
+        var suggestion = this.getSuggestionCache();
 
-      if (suggestion.find(function (item) {
-        return item.title == text;
-      }) == undefined) {
-        suggestion.push({
-          title: text,
-          cache: true
-        });
-        localStorage.setItem("search_suggestion", JSON.stringify(suggestion));
+        if (suggestion.find(function (item) {
+          return item.title == text;
+        }) == undefined) {
+          suggestion.push({
+            title: text,
+            cache: true
+          });
+          localStorage.setItem("search_suggestion", JSON.stringify(suggestion));
+        }
+
+        window.location.href = "".concat(this.siteUrl, "/busca/").concat(text);
       }
 
-      window.location.href = "".concat(this.siteUrl, "/busca/").concat(text);
+      alert('oi');
     },
     remove: function remove(text) {
       var suggestion = this.getSuggestionCache();
@@ -6511,7 +6515,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".header-search-form[data-v-6849e9f0] {\n  width: 100%;\n  position: relative;\n  padding: 0 10px;\n}\n.header-search-form input[data-v-6849e9f0] {\n  width: 100%;\n  height: 44px;\n  font-size: 14px;\n  border-radius: 50px;\n  border: none;\n  padding: 0 19px;\n  background: #f0f0f0;\n}\n.header-search-form input:focus ~ .search-suggestion[data-v-6849e9f0] {\n  opacity: 1;\n  left: initial;\n}\n.header-search-form input[data-v-6849e9f0]:focus {\n  border-radius: 25px 25px 25px 0px !important;\n}\n.header-search-form button[data-v-6849e9f0] {\n  position: absolute;\n  height: 100%;\n  right: 18px;\n  top: 0;\n  font-size: 18px;\n  color: #000;\n  border: none;\n  cursor: pointer;\n  background-color: transparent;\n}\n.header-search-form .search-suggestion[data-v-6849e9f0] {\n  opacity: 0;\n  position: absolute;\n  width: 90%;\n  background-color: #f0f0f0;\n  padding-bottom: 5px;\n  border-radius: 0px 0px 25px 25px !important;\n  transition: 0.3s;\n  z-index: 3;\n  left: -100em;\n}\n.header-search-form .search-suggestion .list-group-item[data-v-6849e9f0] {\n  background-color: transparent;\n  display: flex;\n}\n.header-search-form .search-suggestion .list-group-item .search-item[data-v-6849e9f0] {\n  width: 95%;\n}\n.header-search-form .search-suggestion .list-group-item .search-item .search-item-new[data-v-6849e9f0] {\n  color: #212529;\n}\n.header-search-form .search-suggestion .list-group-item .search-item .search-item-new[data-v-6849e9f0]:hover {\n  color: #2ea7b9;\n}\n.header-search-form .search-suggestion .list-group-item .search-remove-item[data-v-6849e9f0] {\n  cursor: pointer;\n}\n.header-search-form .search-suggestion .list-group-item .search-remove-item[data-v-6849e9f0]:hover {\n  color: #2ea7b9;\n}", ""]);
+exports.push([module.i, ".header-search-form[data-v-6849e9f0] {\n  width: 100%;\n  position: relative;\n  padding: 0 10px;\n}\n.header-search-form input[data-v-6849e9f0] {\n  width: 100%;\n  height: 44px;\n  font-size: 14px;\n  border-radius: 50px;\n  border: none;\n  padding: 0 19px;\n  background: #f0f0f0;\n}\n.header-search-form input:focus ~ .search-suggestion[data-v-6849e9f0] {\n  display: block;\n}\n.header-search-form input[data-v-6849e9f0]:focus {\n  border-radius: 25px 25px 25px 0px !important;\n}\n.header-search-form button[data-v-6849e9f0] {\n  position: absolute;\n  height: 100%;\n  right: 18px;\n  top: 0;\n  font-size: 18px;\n  color: #000;\n  border: none;\n  cursor: pointer;\n  background-color: transparent;\n}\n.header-search-form .search-suggestion[data-v-6849e9f0] {\n  display: none;\n  position: absolute;\n  width: 90%;\n  background-color: #f0f0f0;\n  padding-bottom: 5px;\n  border-radius: 0px 0px 25px 25px !important;\n  transition: 0.3s;\n  z-index: 1001;\n}\n.header-search-form .search-suggestion .list-group-item[data-v-6849e9f0] {\n  background-color: transparent;\n  display: flex;\n}\n.header-search-form .search-suggestion .list-group-item .search-item[data-v-6849e9f0] {\n  width: 95%;\n}\n.header-search-form .search-suggestion .list-group-item .search-item .search-item-new[data-v-6849e9f0] {\n  color: #212529;\n}\n.header-search-form .search-suggestion .list-group-item .search-item .search-item-new[data-v-6849e9f0]:hover {\n  color: #2ea7b9;\n}\n.header-search-form .search-suggestion .list-group-item .search-remove-item[data-v-6849e9f0] {\n  cursor: pointer;\n}\n.header-search-form .search-suggestion .list-group-item .search-remove-item[data-v-6849e9f0]:hover {\n  color: #2ea7b9;\n}", ""]);
 
 // exports
 
@@ -38387,7 +38391,8 @@ var render = function() {
         on: {
           click: function($event) {
             $event.stopPropagation()
-            return _vm.buscar(this.search)
+            $event.preventDefault()
+            return _vm.buscar(_vm.search)
           }
         }
       },
@@ -38438,7 +38443,7 @@ var render = function() {
                     {
                       class:
                         item.cache == true ? "search-item" : "search-item-new",
-                      attrs: { href: "#buscar" },
+                      attrs: { href: _vm.siteUrl + "/busca/" + item.title },
                       on: {
                         click: function($event) {
                           $event.stopPropagation()

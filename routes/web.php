@@ -18,9 +18,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('busca/{q}', function($q) {
-    dd($q);
-});
+Route::get('busca/{q}', 'Api\SearchController@busca');
 
 
 Auth::routes();
