@@ -1984,7 +1984,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       search: '',
-      suggestion: []
+      suggestion: [],
+      elementSuggestion: false
     };
   },
   methods: {
@@ -2002,10 +2003,9 @@ __webpack_require__.r(__webpack_exports__);
           localStorage.setItem("search_suggestion", JSON.stringify(suggestion));
         }
 
+        this.$refs.search_input.focus();
         window.location.href = "".concat(this.siteUrl, "/busca/").concat(text);
       }
-
-      alert('oi');
     },
     remove: function remove(text) {
       var suggestion = this.getSuggestionCache();
@@ -2038,6 +2038,17 @@ __webpack_require__.r(__webpack_exports__);
         suggestion = JSON.parse(suggestion);
         return suggestion;
       } else return [];
+    },
+    blurInput: function blurInput(e) {
+      setTimeout(function () {
+        e.elementSuggestion = false;
+      }, 100);
+    },
+    focusInput: function focusInput(e) {
+      // e.elementSuggestion = true
+      setTimeout(function () {
+        e.elementSuggestion = true;
+      }, 100);
     }
   },
   watch: {
@@ -6515,7 +6526,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".header-search-form[data-v-6849e9f0] {\n  width: 100%;\n  position: relative;\n  padding: 0 10px;\n}\n.header-search-form input[data-v-6849e9f0] {\n  width: 100%;\n  height: 44px;\n  font-size: 14px;\n  border-radius: 50px;\n  border: none;\n  padding: 0 19px;\n  background: #f0f0f0;\n}\n.header-search-form input:focus ~ .search-suggestion[data-v-6849e9f0] {\n  display: block;\n}\n.header-search-form input[data-v-6849e9f0]:focus {\n  border-radius: 25px 25px 25px 0px !important;\n}\n.header-search-form button[data-v-6849e9f0] {\n  position: absolute;\n  height: 100%;\n  right: 18px;\n  top: 0;\n  font-size: 18px;\n  color: #000;\n  border: none;\n  cursor: pointer;\n  background-color: transparent;\n}\n.header-search-form .search-suggestion[data-v-6849e9f0] {\n  display: none;\n  position: absolute;\n  width: 90%;\n  background-color: #f0f0f0;\n  padding-bottom: 5px;\n  border-radius: 0px 0px 25px 25px !important;\n  transition: 0.3s;\n  z-index: 1001;\n}\n.header-search-form .search-suggestion .list-group-item[data-v-6849e9f0] {\n  background-color: transparent;\n  display: flex;\n}\n.header-search-form .search-suggestion .list-group-item .search-item[data-v-6849e9f0] {\n  width: 95%;\n}\n.header-search-form .search-suggestion .list-group-item .search-item .search-item-new[data-v-6849e9f0] {\n  color: #212529;\n}\n.header-search-form .search-suggestion .list-group-item .search-item .search-item-new[data-v-6849e9f0]:hover {\n  color: #2ea7b9;\n}\n.header-search-form .search-suggestion .list-group-item .search-remove-item[data-v-6849e9f0] {\n  cursor: pointer;\n}\n.header-search-form .search-suggestion .list-group-item .search-remove-item[data-v-6849e9f0]:hover {\n  color: #2ea7b9;\n}", ""]);
+exports.push([module.i, ".header-search-form[data-v-6849e9f0] {\n  width: 100%;\n  position: relative;\n  padding: 0 10px;\n}\n.header-search-form input[data-v-6849e9f0] {\n  width: 100%;\n  height: 44px;\n  font-size: 14px;\n  border-radius: 50px;\n  border: none;\n  padding: 0 19px;\n  background: #f0f0f0;\n  transition: border-radius 0.3s linear;\n}\n.header-search-form input[data-v-6849e9f0]:focus {\n  border-radius: 25px 25px 25px 0px !important;\n}\n.header-search-form button[data-v-6849e9f0] {\n  position: absolute;\n  height: 100%;\n  right: 18px;\n  top: 0;\n  font-size: 18px;\n  color: #000;\n  border: none;\n  cursor: pointer;\n  background-color: transparent;\n}\n.header-search-form .search-suggestion[data-v-6849e9f0] {\n  position: absolute;\n  width: 90%;\n  background-color: #f0f0f0;\n  padding-bottom: 5px;\n  border-radius: 0px 0px 25px 25px !important;\n  transition: 0.3s;\n  z-index: 1001;\n}\n.header-search-form .search-suggestion .list-group-item[data-v-6849e9f0] {\n  background-color: transparent;\n  display: flex;\n}\n.header-search-form .search-suggestion .list-group-item .search-item[data-v-6849e9f0] {\n  width: 95%;\n}\n.header-search-form .search-suggestion .list-group-item .search-item .search-item-new[data-v-6849e9f0] {\n  color: #212529;\n}\n.header-search-form .search-suggestion .list-group-item .search-item .search-item-new[data-v-6849e9f0]:hover {\n  color: #2ea7b9;\n}\n.header-search-form .search-suggestion .list-group-item .search-remove-item[data-v-6849e9f0] {\n  cursor: pointer;\n}\n.header-search-form .search-suggestion .list-group-item .search-remove-item[data-v-6849e9f0]:hover {\n  color: #2ea7b9;\n}", ""]);
 
 // exports
 
@@ -38354,6 +38365,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
 var render = function() {
+  var this$1 = this
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -38376,6 +38388,12 @@ var render = function() {
       },
       domProps: { value: _vm.search },
       on: {
+        focus: function() {
+          return this$1.focusInput(this$1)
+        },
+        blur: function() {
+          return this$1.blurInput(this$1)
+        },
         input: function($event) {
           if ($event.target.composing) {
             return
@@ -38431,125 +38449,145 @@ var render = function() {
     ),
     _vm._v(" "),
     _vm.suggestion.length > 0
-      ? _c("div", { staticClass: "search-suggestion" }, [
-          _c(
-            "ul",
-            { staticClass: "list-group list-group-flush" },
-            _vm._l(_vm.suggestion, function(item, index) {
-              return _c("li", { key: index, staticClass: "list-group-item" }, [
-                _c("div", { staticClass: "search-item" }, [
-                  _c(
-                    "a",
-                    {
-                      class:
-                        item.cache == true ? "search-item" : "search-item-new",
-                      attrs: { href: _vm.siteUrl + "/busca/" + item.title },
-                      on: {
-                        click: function($event) {
-                          $event.stopPropagation()
-                          return _vm.buscar(item.title)
-                        }
-                      }
-                    },
-                    [
+      ? _c(
+          "div",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.elementSuggestion,
+                expression: "elementSuggestion"
+              }
+            ],
+            staticClass: "search-suggestion"
+          },
+          [
+            _c(
+              "ul",
+              { staticClass: "list-group list-group-flush" },
+              _vm._l(_vm.suggestion, function(item, index) {
+                return _c(
+                  "li",
+                  { key: index, staticClass: "list-group-item" },
+                  [
+                    _c("div", { staticClass: "search-item" }, [
                       _c(
-                        "svg",
+                        "a",
                         {
-                          staticClass: "bi bi-search mr-2",
-                          attrs: {
-                            width: "1em",
-                            height: "1em",
-                            viewBox: "0 0 16 16",
-                            fill: "currentColor",
-                            xmlns: "http://www.w3.org/2000/svg"
+                          class:
+                            item.cache == true
+                              ? "search-item"
+                              : "search-item-new",
+                          attrs: { href: _vm.siteUrl + "/busca/" + item.title },
+                          on: {
+                            click: function($event) {
+                              $event.stopPropagation()
+                              return _vm.buscar(item.title)
+                            }
                           }
                         },
                         [
-                          _c("path", {
-                            attrs: {
-                              "fill-rule": "evenodd",
-                              d:
-                                "M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("path", {
-                            attrs: {
-                              "fill-rule": "evenodd",
-                              d:
-                                "M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"
-                            }
-                          })
+                          _c(
+                            "svg",
+                            {
+                              staticClass: "bi bi-search mr-2",
+                              attrs: {
+                                width: "1em",
+                                height: "1em",
+                                viewBox: "0 0 16 16",
+                                fill: "currentColor",
+                                xmlns: "http://www.w3.org/2000/svg"
+                              }
+                            },
+                            [
+                              _c("path", {
+                                attrs: {
+                                  "fill-rule": "evenodd",
+                                  d:
+                                    "M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("path", {
+                                attrs: {
+                                  "fill-rule": "evenodd",
+                                  d:
+                                    "M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"
+                                }
+                              })
+                            ]
+                          ),
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(item.title) +
+                              "\n                    "
+                          )
                         ]
-                      ),
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(item.title) +
-                          "\n                    "
                       )
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                item.cache
-                  ? _c(
-                      "div",
-                      {
-                        staticClass: "search-remove-item",
-                        on: {
-                          click: function($event) {
-                            $event.stopPropagation()
-                            return _vm.remove(item.title)
-                          }
-                        }
-                      },
-                      [
-                        _c(
-                          "svg",
+                    ]),
+                    _vm._v(" "),
+                    item.cache
+                      ? _c(
+                          "div",
                           {
-                            staticClass: "bi bi-x-circle",
-                            attrs: {
-                              width: "1em",
-                              height: "1em",
-                              viewBox: "0 0 16 16",
-                              fill: "currentColor",
-                              xmlns: "http://www.w3.org/2000/svg"
+                            staticClass: "search-remove-item",
+                            on: {
+                              click: function($event) {
+                                $event.stopPropagation()
+                                return _vm.remove(item.title)
+                              }
                             }
                           },
                           [
-                            _c("path", {
-                              attrs: {
-                                "fill-rule": "evenodd",
-                                d:
-                                  "M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                "fill-rule": "evenodd",
-                                d:
-                                  "M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                "fill-rule": "evenodd",
-                                d:
-                                  "M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"
-                              }
-                            })
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "bi bi-x-circle",
+                                attrs: {
+                                  width: "1em",
+                                  height: "1em",
+                                  viewBox: "0 0 16 16",
+                                  fill: "currentColor",
+                                  xmlns: "http://www.w3.org/2000/svg"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    "fill-rule": "evenodd",
+                                    d:
+                                      "M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("path", {
+                                  attrs: {
+                                    "fill-rule": "evenodd",
+                                    d:
+                                      "M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("path", {
+                                  attrs: {
+                                    "fill-rule": "evenodd",
+                                    d:
+                                      "M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"
+                                  }
+                                })
+                              ]
+                            )
                           ]
                         )
-                      ]
-                    )
-                  : _vm._e()
-              ])
-            }),
-            0
-          )
-        ])
+                      : _vm._e()
+                  ]
+                )
+              }),
+              0
+            )
+          ]
+        )
       : _vm._e()
   ])
 }
