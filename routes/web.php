@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.home');
-});
+Route::get('/', 'Store\HomeController@home');
 
 
 Route::get('busca/{q}', 'Api\SearchController@busca');

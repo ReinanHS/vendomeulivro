@@ -1,13 +1,114 @@
+<meta name="language" content="pt-BR" />
 <meta name="country" content="BRA" />
 <meta name="currency" content="R$" />
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<title>Compare preços de livros e melhores ofertas e descontos | {{ config('app.name', 'Vendomeulivo') }}</title>
-<meta name="description" content="No vendomeulivro.com você encontra as melhores ofertas de Livros. Encontre o menor preço nas melhores lojas!" />
-<meta name="abstract" content="Livros, Ebook | vendomeulivro.com" />
+<meta name="robots" content="index, follow" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<meta name="apple-mobile-web-app-title" content="{{ config('app.name', 'Vendomeulivo') }}" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="#31acb4" />
+<meta name="theme-color" content="#31acb4" />
+
+@if (isset($seo['title']))
+    <title>{{ $seo['title'] }} | {{ config('app.name', 'Vendomeulivo') }}</title>
+    <meta property="og:title" content="{{ $seo['title'] }}">
+    <meta name="twitter:title" content="{{ $seo['title'] }}">
+@else
+    <title>Compare preços de livros e melhores ofertas e descontos | {{ config('app.name', 'Vendomeulivo') }}</title>
+    <meta property="og:title" content="Compare preços de livros e melhores ofertas e descontos">
+    <meta name="twitter:title" content="Compare preços de livros e melhores ofertas e descontos">
+@endif
+
+@if (isset($seo['description']))
+    <meta name="description" content="{{ $seo['description'] }}" />
+    <meta property="og:description" content="{{ Str::limit($seo['description'], 195, '...') }}"/>
+    <meta name="twitter:description" content="{{ Str::limit($seo['description'], 195, '...') }}">
+@else
+    <meta name="description" content="No vendomeulivro.com você encontra as melhores ofertas de Livros. Encontre o menor preço nas melhores lojas!" />
+    <meta property="og:description" content="No vendomeulivro.com você encontra as melhores ofertas de Livros. Encontre o menor preço nas melhores lojas!"/>
+    <meta name="twitter:description" content="No vendomeulivro.com você encontra as melhores ofertas de Livros. Encontre o menor preço nas melhores lojas!">
+@endif
+
+@if (isset($seo['abstract']))
+    <meta name="abstract" content="{{ $seo['abstract'] }}" />
+@else
+    <meta name="abstract" content="Livros, Ebook | vendomeulivro.com" />
+@endif
 <meta name="author" content="ReinanHS, reinangabriel1520@gmail.com" />
 <meta name="copyright" content="vendomeulivo.com" />
-<meta name="keywords" content="vendomeulivro, reviews de produto, comparador de preços, compras, comparar preços de livros, compare, compare preços"/>
 
+<!-- Open Graph Facebook -->
+<meta property="og:url" content="{{ url()->current() }}">
+<meta property="og:site_name" content="Vendo meu livro"/>
+<meta property="og:image" content="https://exemplo.com/imagem.png">
+@if ( isset($seo['product']) )
+    <meta property="og:type" content="og:product" />
+
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org/",
+          "@type": "Product",
+          "name": "{{ $seo['title'] }}",
+          "image": [
+            @for ($i = 0; $i < sizeof($seo['product']['image']); $i++)
+            "{{ $seo['product']['image'][$i] }}"@if ($i < sizeof($seo['product']['image']) - 1), @endif
+            @endfor
+           ],
+          "description": "{{ Str::limit($seo['description'], 135, '...') }}",
+          "sku": "{{ $seo['product']['id'] }}",
+          "mpn": "925872",
+          "brand": {
+            "@type": "Brand",
+            "name": "{{ $seo['product']['editora'] }}"
+          },
+          "review": {
+            "@type": "Review",
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "{{ $seo['product']['review']['rating'] }}",
+              "bestRating": "5"
+            },
+            "author": {
+              "@type": "Person",
+              "name": "{{ $seo['product']['review']['name'] }}"
+            },
+            "headline": "Bem legal",
+            "reviewBody": "{{ $seo['product']['review']['body'] }}",
+            "datePublished": "{{ $seo['product']['review']['date'] }}"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.4",
+            "reviewCount": "89"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "offerCount": "5",
+            "lowPrice": "{{ $seo['product']['offers']['lowPrice'] }}",
+            "highPrice": "{{ $seo['product']['offers']['highPrice'] }}",
+            "priceCurrency": "BRL"
+          }
+        }
+    </script>
+@else
+    <meta property="og:type" content="website">
+@endif
+
+<!-- Twitter -->
+<meta name="twitter:url" content="{{ url()->current() }}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://exemplo.com/imagem.png">
+<meta name="twitter:creator" content="@ReinanGabriel9">
+{{--  <meta name="twitter:site" content="@empresa">  --}}
+
+@if (isset($seo['keywords']))
+    <meta name="keywords" content="@foreach ($seo['keywords'] as $keywords){{ $keywords }},@endforeach vendo meu livro"/>
+@else
+    <meta name="keywords" content="vendomeulivro"/>
+@endif
+
+@if (url()->current() == url('/'))
 <script type="application/ld+json">
     {
     "@context": "http://schema.org",
@@ -45,6 +146,7 @@
     ]
     }
 </script>
+@endif
 
 <link rel="shortcut icon" href="{{ url('/img/logos/favicon.ico') }}" />
 <link rel="apple-touch-icon" href="{{ url('/img/logos/60x60-precomposed.png') }}" />

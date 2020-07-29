@@ -11102,3 +11102,287 @@ a.text-dark:focus {
   }
 }
 
+#bookCarousel {
+  position: relative;
+  z-index: 1;
+  background: url(/images/gradient-banner-background.jpg?cd3f4a36e41a38ab68c147ce09ac799f) center center no-repeat;
+  background-size: cover;
+}
+
+#bookCarousel .carousel-item .mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-attachment: fixed;
+}
+
+#bookCarousel h4 {
+  font-size: 50px;
+  margin-bottom: 15px;
+  color: #FFF;
+  line-height: 100%;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+#bookCarousel p {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #d5d5d5;
+}
+
+#bookCarousel .carousel-item a {
+  display: inline-block;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  min-width: 167px;
+  padding: 12px 40px 12px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  color: #fff;
+  line-height: normal;
+  cursor: pointer;
+  text-align: center;
+  background: transparent;
+  box-shadow: inset 0 0 0 1px #fff;
+}
+
+#bookCarousel .carousel-item a:hover {
+  background: #31acb4b5;
+  text-decoration: none;
+}
+
+#bookCarousel .carousel-item a.btn.btn-comprar {
+  margin-left: 5px;
+  background-color: #fff !important;
+  color: black;
+}
+
+#bookCarousel .carousel-item h4 {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+}
+
+#bookCarousel .carousel-item p {
+  -webkit-animation-name: slideInRight;
+  animation-name: slideInRight;
+}
+
+#bookCarousel .carousel-item a {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+#bookCarousel .carousel-item .mask img {
+  -webkit-animation-name: slideInRight;
+  animation-name: slideInRight;
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+#bookCarousel h4,
+#bookCarousel p,
+#bookCarousel a,
+#bookCarousel .carousel-item .mask img {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1.2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+#bookCarousel .container {
+  max-width: 1430px;
+}
+
+#bookCarousel .carousel-item {
+  height: 100%;
+  min-height: 550px;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+  height: 40px;
+  width: 40px;
+  padding: 12px;
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%);
+  background-color: #31acb4b5;
+}
+
+.carousel-item {
+  position: relative;
+  display: none;
+  align-items: center;
+  width: 100%;
+  transition: transform 0.6s ease;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.carousel-fade .carousel-item {
+  opacity: 0;
+  transition-duration: 0.6s;
+  transition-property: opacity;
+}
+
+.carousel-fade .carousel-item-next.carousel-item-left,
+.carousel-fade .carousel-item-prev.carousel-item-right,
+.carousel-fade .carousel-item.active {
+  opacity: 1;
+}
+
+.carousel-fade .carousel-item-left.active,
+.carousel-fade .carousel-item-right.active {
+  opacity: 0;
+}
+
+.carousel-fade .carousel-item-left.active,
+.carousel-fade .carousel-item-next {
+  transform: translateX(0);
+}
+
+.carousel-fade .carousel-item-prev {
+  transform: translateX(0);
+}
+
+.carousel-fade .carousel-item-prev.active {
+  transform: translateX(0);
+}
+
+.carousel-fade .carousel-item.active {
+  transform: translateX(0);
+}
+
+.carousel-fade .carousel-item-left.active,
+.carousel-fade .carousel-item-next {
+  transform: translate3d(0, 0, 0);
+}
+
+.carousel-fade .carousel-item-prev {
+  transform: translate3d(0, 0, 0);
+}
+
+.carousel-fade .carousel-item-prev.active {
+  transform: translate3d(0, 0, 0);
+}
+
+.carousel-fade .carousel-item.active {
+  transform: translate3d(0, 0, 0);
+}
+
+@supports (transform-style: preserve-3d) {
+  .carousel-fade .carousel-item-left.active,
+  .carousel-fade .carousel-item-next {
+    transform: translate3d(0, 0, 0);
+  }
+
+  .carousel-fade .carousel-item-prev {
+    transform: translate3d(0, 0, 0);
+  }
+
+  .carousel-fade .carousel-item-prev.active {
+    transform: translate3d(0, 0, 0);
+  }
+
+  .carousel-fade .carousel-item.active {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@-webkit-keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInLeft {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+}
+
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+@-webkit-keyframes slideInRight {
+  from {
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInRight {
+  -webkit-animation-name: slideInRight;
+  animation-name: slideInRight;
+}
+
+@media (max-width: 768px) {
+  #bookCarousel .carousel-item {
+    height: 580px;
+  }
+}
+

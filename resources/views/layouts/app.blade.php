@@ -6,7 +6,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    @include('components.seo')
+    @include('components.seo', ['seo' => $seo ?? null ])
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
