@@ -11109,15 +11109,6 @@ a.text-dark:focus {
   background-size: cover;
 }
 
-#bookCarousel .carousel-item .mask {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-attachment: fixed;
-}
-
 #bookCarousel h4 {
   font-size: 50px;
   margin-bottom: 15px;
@@ -11180,7 +11171,7 @@ a.text-dark:focus {
   -webkit-animation-name: slideInRight;
   animation-name: slideInRight;
   display: block;
-  height: auto;
+  max-height: 550px;
   max-width: 100%;
 }
 
