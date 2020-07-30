@@ -16,31 +16,31 @@
 
     .carousel-item {
         a {
-            display       : inline-block;
-            border        : none;
-            font-size     : 14px;
-            font-weight   : 600;
-            min-width     : 167px;
-            padding       : 12px 40px 12px;
-            border-radius : 50px;
-            text-transform: uppercase;
-            color         : #fff;
-            line-height   : normal;
-            cursor        : pointer;
-            text-align    : center;
-            background: transparent;
+            display           : inline-block;
+            border            : none;
+            font-size         : 14px;
+            font-weight       : 600;
+            min-width         : 167px;
+            padding           : 12px 40px 12px;
+            border-radius     : 50px;
+            text-transform    : uppercase;
+            color             : #fff;
+            line-height       : normal;
+            cursor            : pointer;
+            text-align        : center;
+            background        : transparent;
             -webkit-box-shadow: inset 0 0 0 1px #fff;
-            box-shadow: inset 0 0 0 1px #fff;
+            box-shadow        : inset 0 0 0 1px #fff;
 
             &:hover {
                 background     : #31acb4b5;
                 text-decoration: none;
             }
 
-            &.btn.btn-comprar{
-                margin-left: 5px;
+            &.btn.btn-comprar {
+                margin-left     : 5px;
                 background-color: #fff !important;
-                color: black;
+                color           : black;
             }
         }
 
@@ -310,8 +310,21 @@
     animation-name        : slideInRight;
 }
 
-@media (max-width: 768px){
+@media (max-width: 768px) {
     #bookCarousel .carousel-item {
-        height: 580px;
+        height     : 580px;
+        padding-top: 120px;
+    }
+
+    .carousel-control-next, .carousel-control-prev {
+        top: 90%;
+    }
+}
+
+@media (max-width: 618px) {
+    #bookCarousel {
+        h4 {
+            font-size: 35px;
+        }
     }
 }

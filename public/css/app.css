@@ -11374,6 +11374,18 @@ a.text-dark:focus {
 @media (max-width: 768px) {
   #bookCarousel .carousel-item {
     height: 580px;
+    padding-top: 120px;
+  }
+
+  .carousel-control-next,
+  .carousel-control-prev {
+    top: 90%;
+  }
+}
+
+@media (max-width: 618px) {
+  #bookCarousel h4 {
+    font-size: 35px;
   }
 }
 
