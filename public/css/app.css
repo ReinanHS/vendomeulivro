@@ -11413,92 +11413,6 @@ a.text-dark:focus {
   text-align: center;
 }
 
-.book-list .card {
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
-}
-
-.book-list .card .card-capa .card-img-effect {
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.4);
-  width: 100%;
-  height: 74%;
-  position: absolute;
-  opacity: 0;
-  transition: opacity 0.5s linear;
-}
-
-.book-list .card .card-capa .card-img-load {
-  width: 160px;
-  height: 230px;
-}
-
-.book-list .card .card-capa .card-img-load .card-img-top {
-  max-height: 230px;
-  max-width: 160px;
-  height: 230px;
-  opacity: 0;
-}
-
-.book-list .card .card-body {
-  padding: 7px 10px;
-}
-
-.book-list .card .card-body .card-title {
-  font-size: 13px;
-  font-weight: 300;
-  line-height: 17px;
-  text-decoration: none;
-  color: #333;
-}
-
-.book-list .card .card-body .card-subtitle {
-  font-size: 13px;
-  font-weight: 300;
-  text-decoration: none;
-  color: #333;
-}
-
-.book-list .card .card-body .card-title .title-limit,
-.book-list .card .card-body .card-subtitle .subtitle-limit {
-  background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
-  height: 25px;
-  width: 100%;
-}
-
-.book-list .card .card-body .card-link {
-  font-size: 12px;
-}
-
-.book-list .card .card-body .stars {
-  display: inline-block;
-  font-family: Times;
-  line-height: 1;
-  margin-right: 8px;
-  color: transparent;
-}
-
-.book-list .card .card-body .stars::before {
-  content: "\2605\2605\2605\2605\2605";
-  letter-spacing: 3px;
-}
-
-.book-list .card .card-load-item {
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-name: placeHolderShimmer;
-          animation-name: placeHolderShimmer;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
-  background: #f6f7f8;
-  background-image: -webkit-linear-gradient(left, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
-  background-size: 800px 104px;
-  position: relative;
-}
-
 @-webkit-keyframes placeHolderShimmer {
   0% {
     background-position: -468px 0;
@@ -11516,6 +11430,121 @@ a.text-dark:focus {
 
   100% {
     background-position: 468px 0;
+  }
+}
+
+.card-container {
+  background-color: #fff;
+  box-shadow: 0 2.5rem 2rem -2rem rgba(26, 60, 77, 0.4);
+  margin: 0 auto;
+  border-radius: 8px;
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.card-container img {
+  width: 100%;
+  position: relative;
+  left: -38px;
+  display: block;
+  border-radius: inherit;
+}
+
+.card-container .card-top {
+  background: linear-gradient(to right, #64c1ff, #0064b7);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 0;
+  height: 410px;
+  width: 100%;
+  padding: 10px 0px 0px 0px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  display: flex;
+}
+
+.card-container .card-top .card-top-icons > div {
+  width: 38px;
+  height: 38px;
+  background-color: #fff;
+  border-radius: 50%;
+  z-index: 100;
+  position: relative;
+  left: -48px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.card-container .card-top .card-top-icons > div > svg {
+  transition: all 0.3s;
+}
+
+.card-container .card-top .card-top-icons > div:hover > svg {
+  transform: scale(1.2);
+}
+
+.card-container .card-body {
+  text-align: center;
+  padding: 8px 5px;
+}
+
+.card-container .card-body .card-title {
+  color: #333;
+  font-weight: 700;
+}
+
+.card-container .card-body .card-title:hover {
+  text-decoration: none;
+}
+
+.card-container .card-body .card-author {
+  color: #333;
+}
+
+.card-container .card-body .card-author:hover {
+  text-decoration: none;
+}
+
+.card-container .card-button .rating-section {
+  border-top: 1px solid #eee;
+  padding: 8px 12px;
+  margin-top: 5px;
+  display: flex;
+}
+
+.card-container .card-button .stars-rating {
+  width: 50%;
+  height: 20px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.card-container .card-button .stars-rating .stars {
+  font-family: Times;
+  line-height: 1;
+  background: rgba(0, 0, 0, 0) linear-gradient(to right, #737373 89.6%, #cccccc 70%) repeat scroll 0% 0% padding-box text;
+  color: transparent;
+}
+
+.card-container .card-button .stars-rating .stars::before {
+  content: "\2605\2605\2605\2605\2605";
+  letter-spacing: 3px;
+  -webkit-text-fill-color: transparent;
+}
+
+.card-container .card-button .card-price {
+  width: 50%;
+  display: flex;
+  justify-content: end;
+}
+
+@media screen and (max-width: 576px) {
+  .card-container {
+    max-width: 340px !important;
   }
 }
 
