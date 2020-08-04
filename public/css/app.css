@@ -11520,15 +11520,8 @@ a.text-dark:focus {
   text-align: center;
 }
 
-.book-list .grid-container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-column-gap: 10px;
-  grid-row-gap: 1em;
-}
-
-.book-list .grid-container .card-container {
-  background-color: #fff;
+.book-list .card-container {
+  background: #fff;
   box-shadow: 0 2.5rem 2rem -2rem rgba(26, 60, 77, 0.4);
   margin: 0 auto;
   border-radius: 8px;
@@ -11537,12 +11530,7 @@ a.text-dark:focus {
   transition: all 0.3s;
 }
 
-.book-list .grid-container .card-container:hover {
-  transform: scale(1.1);
-  z-index: 5;
-}
-
-.book-list .grid-container .card-container .card-top {
+.book-list .card-container .card-top {
   background: -webkit-gradient(linear, left top, right top, from(#64c1ff), to(#0064b7));
   background: -o-linear-gradient(left, #64c1ff, #0064b7);
   background: linear-gradient(to right, #64c1ff, #0064b7);
@@ -11558,11 +11546,11 @@ a.text-dark:focus {
   display: flex;
 }
 
-.book-list .grid-container .card-container .card-top.placeholdershimmer > .card-image {
+.book-list .card-container .card-top.placeholdershimmer > .card-image {
   opacity: 0 !important;
 }
 
-.book-list .grid-container .card-container .card-top .card-image img {
+.book-list .card-container .card-top .card-image img {
   width: 100%;
   position: relative;
   left: -38px;
@@ -11571,11 +11559,11 @@ a.text-dark:focus {
   height: 100%;
 }
 
-.book-list .grid-container .card-container .card-top .card-image:hover > a .card-image-effect {
+.book-list .card-container .card-top .card-image:hover > a .card-image-effect {
   opacity: 1;
 }
 
-.book-list .grid-container .card-container .card-top .card-image .card-image-effect {
+.book-list .card-container .card-top .card-image .card-image-effect {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.4);
   border-top-left-radius: 8px;
@@ -11587,13 +11575,13 @@ a.text-dark:focus {
   transition: opacity 0.4s ease-in-out;
 }
 
-.book-list .grid-container .card-container .card-top .card-top-icons {
+.book-list .card-container .card-top .card-top-icons {
   position: absolute;
   left: 81%;
   padding: 10px 0px 0px 0px;
 }
 
-.book-list .grid-container .card-container .card-top .card-top-icons > div {
+.book-list .card-container .card-top .card-top-icons > div {
   width: 38px;
   height: 38px;
   background-color: #fff;
@@ -11608,37 +11596,37 @@ a.text-dark:focus {
   cursor: pointer;
 }
 
-.book-list .grid-container .card-container .card-top .card-top-icons > div > svg {
+.book-list .card-container .card-top .card-top-icons > div > svg {
   transition: all 0.3s;
 }
 
-.book-list .grid-container .card-container .card-top .card-top-icons > div:hover > svg {
+.book-list .card-container .card-top .card-top-icons > div:hover > svg {
   transform: scale(1.2);
 }
 
-.book-list .grid-container .card-container .card-body {
+.book-list .card-container .card-body {
   text-align: center;
   padding: 8px 5px;
 }
 
-.book-list .grid-container .card-container .card-body .card-title {
+.book-list .card-container .card-body .card-title {
   color: #333;
   font-weight: 700;
 }
 
-.book-list .grid-container .card-container .card-body .card-title:hover {
+.book-list .card-container .card-body .card-title:hover {
   text-decoration: none;
 }
 
-.book-list .grid-container .card-container .card-body .card-author {
+.book-list .card-container .card-body .card-author {
   color: #333;
 }
 
-.book-list .grid-container .card-container .card-body .card-author:hover {
+.book-list .card-container .card-body .card-author:hover {
   text-decoration: none;
 }
 
-.book-list .grid-container .card-container .card-button .rating-section {
+.book-list .card-container .card-button .rating-section {
   border-top: 1px solid #eee;
   padding: 8px 12px;
   margin-top: 5px;
@@ -11647,7 +11635,7 @@ a.text-dark:focus {
   display: flex;
 }
 
-.book-list .grid-container .card-container .card-button .stars-rating {
+.book-list .card-container .card-button .stars-rating {
   width: 50%;
   height: 20px;
   display: -webkit-box;
@@ -11657,7 +11645,7 @@ a.text-dark:focus {
   align-items: center;
 }
 
-.book-list .grid-container .card-container .card-button .stars-rating .stars {
+.book-list .card-container .card-button .stars-rating .stars {
   font-family: Times;
   line-height: 1;
   color: transparent;
@@ -11669,12 +11657,12 @@ a.text-dark:focus {
   -webkit-text-fill-color: transparent;
 }
 
-.book-list .grid-container .card-container .card-button .stars-rating .stars::before {
+.book-list .card-container .card-button .stars-rating .stars::before {
   content: "\2605\2605\2605\2605\2605";
   letter-spacing: 3px;
 }
 
-.book-list .grid-container .card-container .card-button .card-price {
+.book-list .card-container .card-button .card-price {
   width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11682,7 +11670,7 @@ a.text-dark:focus {
   justify-content: flex-end;
 }
 
-.book-list .grid-container .card-container .card-button .card-price a {
+.book-list .card-container .card-button .card-price a {
   color: #31acb4;
   text-decoration: none !important;
 }

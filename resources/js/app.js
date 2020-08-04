@@ -21,6 +21,7 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('search-bar', require('./components/SearchBar.vue').default);
+Vue.component('category-list', require('./components/CategoryList.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
