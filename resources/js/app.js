@@ -31,3 +31,20 @@ Vue.component('search-bar', require('./components/SearchBar.vue').default);
 const app = new Vue({
     el: '#app',
 });
+
+window.onload = function () {
+
+    const cardImages = Array.prototype.slice.call(document.querySelectorAll('.card-container .card-top'))
+
+    if(cardImages.length > 0){
+        cardImages.map(card => {
+
+            let imageLoad = new Image();
+            imageLoad.src = card.querySelector('.card-image a img').src;
+
+            imageLoad.onload = function() {
+                card.classList.remove('placeholdershimmer')
+            }
+        })
+    }
+};

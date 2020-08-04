@@ -22,6 +22,203 @@
         padding         : 0 20px;
         text-align      : center;
     }
+
+    .grid-container {
+        display              : grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-column-gap      : 10px;
+        grid-row-gap         : 1em;
+
+        .card-container {
+            background-color  : #fff;
+            -webkit-box-shadow: 0 2.5rem 2rem -2rem hsl(200 50% 20% / 40%);
+            box-shadow        : 0 2.5rem 2rem -2rem hsl(200 50% 20% / 40%);
+            margin            : 0 auto;
+            border-radius     : 8px;
+            position          : relative;
+            margin-bottom     : 60px;
+            -moz-transition   : all 0.3s;
+            -webkit-transition: all 0.3s;
+            transition        : all 0.3s;
+
+            &:hover {
+                -moz-transform   : scale(1.1);
+                -webkit-transform: scale(1.1);
+                transform        : scale(1.1);
+                z-index          : 5;
+            }
+
+            .card-top {
+                background             : -webkit-gradient(linear, left top, right top, from(#64c1ff), to(#0064b7));
+                background             : -o-linear-gradient(left, #64c1ff, #0064b7);
+                background             : linear-gradient(to right, #64c1ff, #0064b7);
+                background-repeat      : no-repeat;
+                background-size        : cover;
+                background-position    : 0 0;
+                height                 : 325px;
+                width                  : 100%;
+                border-top-left-radius : 8px;
+                border-top-right-radius: 8px;
+                display                : -webkit-box;
+                display                : -ms-flexbox;
+                display                : flex;
+
+                &.placeholdershimmer>.card-image {
+                    opacity: 0 !important;
+                }
+
+                .card-image {
+                    img {
+                        width        : 100%;
+                        position     : relative;
+                        left         : -38px;
+                        display      : block;
+                        border-radius: inherit;
+                        height       : 100%;
+                    }
+
+                    &:hover>a .card-image-effect {
+                        opacity: 1;
+                    }
+
+                    .card-image-effect {
+                        position               : absolute;
+                        background-color       : rgba(0, 0, 0, 0.4);
+                        border-top-left-radius : 8px;
+                        border-top-right-radius: 8px;
+                        width                  : 100%;
+                        height                 : 325px;
+                        top                    : 0px;
+                        opacity                : 0;
+                        -webkit-transition     : opacity .4s ease-in-out;
+                        -moz-transition        : opacity .4s ease-in-out;
+                        -ms-transition         : opacity .4s ease-in-out;
+                        -o-transition          : opacity .4s ease-in-out;
+                        transition             : opacity .4s ease-in-out;
+                    }
+                }
+
+                .card-top-icons {
+                    position: absolute;
+                    left    : 81%;
+                    padding : 10px 0px 0px 0px;
+
+                    &>div {
+                        width           : 38px;
+                        height          : 38px;
+                        background-color: #fff;
+                        border-radius   : 50%;
+                        z-index         : 100;
+                        margin-bottom   : 10px;
+                        display         : flex;
+                        justify-content : center;
+                        align-items     : center;
+                        cursor          : pointer;
+
+                        &>svg {
+                            -moz-transition   : all 0.3s;
+                            -webkit-transition: all 0.3s;
+                            transition        : all 0.3s;
+                        }
+
+                        &:hover>svg {
+                            -moz-transform   : scale(1.2);
+                            -webkit-transform: scale(1.2);
+                            transform        : scale(1.2);
+                        }
+                    }
+                }
+            }
+
+            .card-body {
+                text-align: center;
+                padding   : 8px 5px;
+
+                .card-title {
+                    color      : #333;
+                    font-weight: 700;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+
+                .card-author {
+                    color: #333;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
+
+            .card-button {
+                .rating-section {
+                    border-top: 1px solid #eee;
+                    padding   : 8px 12px;
+                    margin-top: 5px;
+                    display   : flex;
+                }
+
+                .stars-rating {
+                    width          : 50%;
+                    height         : 20px;
+                    display        : flex;
+                    justify-content: flex-start;
+                    align-items    : center;
+
+                    .stars {
+                        font-family: Times; // make sure ★ appears correctly
+                        line-height: 1;
+                        color      : transparent;
+                        background: #000000 linear-gradient(to right, #737373 89.6%, #cccccc 70%);
+                        background-clip: text;
+                        -webkit-text-fill-color: transparent;
+
+                        &::before {
+                            content                : '★★★★★';
+                            letter-spacing         : 3px;
+                        }
+                    }
+                }
+
+                .card-price {
+                    width          : 50%;
+                    display        : flex;
+                    justify-content: flex-end;
+
+                    a {
+                        color          : #31acb4;
+                        text-decoration: none !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.placeholdershimmer {
+    animation-duration       : 1s;
+    animation-fill-mode      : forwards;
+    animation-iteration-count: infinite;
+    animation-name           : placeHolderShimmer;
+    animation-timing-function: linear;
+    background               : #f6f7f8;
+    background-image         : -webkit-gradient(linear,
+            left center,
+            right center,
+            from(#f6f7f8),
+            color-stop(0.2, #edeef1),
+            color-stop(0.4, #f6f7f8),
+            to(#f6f7f8)) !important;
+    background-image: -webkit-linear-gradient(left,
+            #f6f7f8 0%,
+            #edeef1 20%,
+            #f6f7f8 40%,
+            #f6f7f8 100%) !important;
+    background-repeat: repeat !important;
+    background-size  : 800px 104px !important;
+    position         : relative;
 }
 
 @keyframes placeHolderShimmer {
@@ -31,128 +228,6 @@
 
     100% {
         background-position: 468px 0;
-    }
-}
-
-.card-container {
-    // width             : 320px;
-    background-color  : #fff;
-    -webkit-box-shadow: 0 2.5rem 2rem -2rem hsl(200 50% 20% / 40%);
-    box-shadow        : 0 2.5rem 2rem -2rem hsl(200 50% 20% / 40%);
-    margin            : 0 auto;
-    border-radius     : 8px;
-    position          : relative;
-    // top               : 30px;
-    margin-bottom     : 60px;
-
-    img {
-        width        : 100%;
-        position     : relative;
-        left         : -38px;
-        display      : block;
-        border-radius: inherit;
-    }
-
-    .card-top {
-        background             : -webkit-gradient(linear, left top, right top, from(#64c1ff), to(#0064b7));
-        background             : -o-linear-gradient(left, #64c1ff, #0064b7);
-        background             : linear-gradient(to right, #64c1ff, #0064b7);
-        background-repeat      : no-repeat;
-        background-size        : cover;
-        background-position    : 0 0;
-        height                 : 410px;
-        width                  : 100%;
-        padding                : 10px 0px 0px 0px;
-        border-top-left-radius : 8px;
-        border-top-right-radius: 8px;
-        display                : -webkit-box;
-        display                : -ms-flexbox;
-        display                : flex;
-
-        .card-top-icons>div {
-            width           : 38px;
-            height          : 38px;
-            background-color: #fff;
-            border-radius   : 50%;
-            z-index         : 100;
-            position        : relative;
-            left            : -48px;
-            margin-bottom   : 10px;
-            display         : flex;
-            justify-content : center;
-            align-items     : center;
-            cursor          : pointer;
-
-            &>svg {
-                -moz-transition   : all 0.3s;
-                -webkit-transition: all 0.3s;
-                transition        : all 0.3s;
-            }
-
-            &:hover>svg {
-                -moz-transform   : scale(1.2);
-                -webkit-transform: scale(1.2);
-                transform        : scale(1.2);
-            }
-        }
-    }
-
-    .card-body {
-        text-align: center;
-        padding   : 8px 5px;
-
-        .card-title {
-            color: #333;
-            font-weight: 700;
-
-            &:hover{
-                text-decoration: none;
-            }
-        }
-
-        .card-author {
-            color: #333;
-
-            &:hover{
-                text-decoration: none;
-            }
-        }
-    }
-
-    .card-button {
-        .rating-section {
-            border-top: 1px solid #eee;
-            padding   : 8px 12px;
-            margin-top: 5px;
-            display   : flex;
-        }
-
-        .stars-rating {
-            width          : 50%;
-            height         : 20px;
-            display        : flex;
-            justify-content: left;
-            align-items    : center;
-
-            .stars {
-                font-family: Times; // make sure ★ appears correctly
-                line-height: 1;
-                background : rgba(0, 0, 0, 0) linear-gradient(to right, #737373 89.6%, rgb(204, 204, 204) 70%) repeat scroll 0% 0% padding-box text;
-                color      : transparent;
-
-                &::before {
-                    content                : '★★★★★';
-                    letter-spacing         : 3px;
-                    -webkit-text-fill-color: transparent;
-                }
-            }
-        }
-
-        .card-price {
-            width          : 50%;
-            display        : flex;
-            justify-content: end;
-        }
     }
 }
 
