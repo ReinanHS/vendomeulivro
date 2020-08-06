@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "vue-flickity": "^1.2.1"
+        "vue-flickity": "^1.2.1",
+        "vuex": "^3.5.1"
     }
 }
