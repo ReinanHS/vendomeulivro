@@ -11598,12 +11598,40 @@ a.text-dark:focus {
   text-decoration: none;
 }
 
+.book-list .card-container .card-body .card-title .title {
+  height: 30px;
+  overflow: hidden;
+}
+
+.book-list .card-container .card-body .card-title .title .text-effect {
+  position: absolute;
+  width: 40px;
+  height: 30px;
+  bottom: 18%;
+  left: 86%;
+  background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0), white);
+}
+
 .book-list .card-container .card-body .card-author {
   color: #333;
 }
 
 .book-list .card-container .card-body .card-author:hover {
   text-decoration: none;
+}
+
+.book-list .card-container .card-body .card-author .author {
+  height: 24px;
+  overflow: hidden;
+}
+
+.book-list .card-container .card-body .card-author .author .text-effect {
+  position: absolute;
+  width: 40px;
+  height: 30px;
+  bottom: 11%;
+  left: 86%;
+  background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0), white);
 }
 
 .book-list .card-container .card-button .rating-section {

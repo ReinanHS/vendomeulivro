@@ -26,6 +26,7 @@ Vue.component('search-bar', require('./components/SearchBar.vue').default);
 Vue.component('category-list', require('./components/Category/CategoryList.vue').default);
 Vue.component('book-card', require('./components/Category/BookCard.vue').default);
 Vue.component('book-card-action-btn', require('./components/Category/ActionsButtons.vue').default);
+Vue.component('modal-share', require('./components/Category/ModalShare.vue').default);
 Vue.component('shopping-cart', require('./components/ShoppingCart.vue').default);
 
 /**

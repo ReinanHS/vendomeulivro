@@ -1,23 +1,25 @@
 <template>
     <div class="card-container">
-        <div class="card-top placeholdershimmer">
+        <div class="card-top" :class="{'placeholdershimmer': !imageLoad}">
             <div class="card-image">
                 <a :href="book.link">
-                    <img :src="book.image" alt="Capa do livro">
+                    <img ref="image" :src="book.image" :alt="'Capa do livro '+ book.title">
                     <div class="card-image-effect"></div>
                 </a>
             </div>
-            <book-card-action-btn :book="{like: false, id: 1, code: 'reinan'}"/>
+            <book-card-action-btn v-if="load" :book="{like: false, id: 1, code: 'reinan'}"/>
         </div>
         <div class="card-body">
             <a :class="{'title-load placeholdershimmer': !load}" class="card-title" :href="book.link">
                 <div v-if="load" class="title" :title="book.title">
                     <p>{{ book.title }}</p>
+                    <div class="text-effect"></div>
                 </div>
             </a>
-            <a :class="{'author-load placeholdershimmer': !load}" class="card-author" :href="book.author.slug">
+            <a :class="{'author-load placeholdershimmer': !load}" class="card-author" :href="((!load) ? '#load' : book.author.slug)">
                 <div v-if="load" class="author" :title="'Author '+book.author.name">
                     <span>{{ book.author.name }}</span>
+                    <div class="text-effect"></div>
                 </div>
             </a>
         </div>
@@ -38,20 +40,23 @@
 <script>
 export default {
     name: 'BookCard',
+    props: {
+        load: {
+            type: Boolean,
+            default: true,
+        },
+        book: {
+            type: Object,
+        }
+    },
     data() {
         return {
-            load: false,
-            book: {
-                title: 'Laços Inseparáveis',
-                price: 20.99,
-                author: {
-                    name: 'Giffin',
-                    slug: 'giffin',
-                },
-                image: 'img/livros/carousel/a-garota-do-lago.png2',
-                link: '#book',
-                like: false,
-            },
+            imageLoad: false,
+        }
+    },
+    methods: {
+        imgLoaded: function(){
+            this.imageLoad = true
         }
     },
 }

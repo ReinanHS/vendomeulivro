@@ -23,6 +23,8 @@
         @include('components.header')
 
         @yield('content')
+
+        <modal-share></modal-share>
     </div>
 </body>
 </html>

@@ -83,4 +83,143 @@ class SearchController extends Controller
 
         return response()->json($result);
     }
+
+    public function teste($id){
+        // sleep(3);
+        return response()->json([
+            0 => [
+                'id' => 1,
+                'title' => 'Como criar um site',
+                'image' => url('img/livros/carousel/a-garota-do-lago.png'),
+                'link' => 'como-criar-um-site-0/p',
+                'author' => [
+                    'name' => 'Reinan Gabriel',
+                    'slug' => 'reinan-gabriel',
+                ],
+                'price' => 1.99,
+            ],
+            1 => [
+                'id' => 2,
+                'title' => 'Sem medo de vencer: O principal fator',
+                'image' => url('img/livros/carousel/a-garota-do-lago.png'),
+                'link' => 'como-criar-um-site-0/p',
+                'author' => [
+                    'name' => 'Reinan Gabriel',
+                    'slug' => 'reinan-gabriel',
+                ],
+                'price' => 1.99,
+            ],
+            2 => [
+                'id' => 3,
+                'title' => 'SCRUM: A arte de fazer o dobro',
+                'image' => url('img/livros/carousel/a-garota-do-lago.png'),
+                'link' => 'como-criar-um-site-0/p',
+                'author' => [
+                    'name' => 'Reinan Gabriel',
+                    'slug' => 'reinan-gabriel',
+                ],
+                'price' => 1.99,
+            ],
+            3 => [
+                'id' => 4,
+                'title' => 'Ansiedade 3. Ciúme',
+                'image' => url('img/livros/carousel/a-garota-do-lago.png'),
+                'link' => 'como-criar-um-site-0/p',
+                'author' => [
+                    'name' => 'Reinan Gabriel',
+                    'slug' => 'reinan-gabriel',
+                ],
+                'price' => 1.99,
+            ],
+            4 => [
+                'id' => 5,
+                'title' => 'Diário de um Banana 14: Quebra tudo',
+                'image' => url('img/livros/carousel/a-garota-do-lago.png'),
+                'link' => 'como-criar-um-site-0/p',
+                'author' => [
+                    'name' => 'Reinan Gabriel',
+                    'slug' => 'reinan-gabriel',
+                ],
+                'price' => 1.99,
+            ],
+            5 => [
+                'id' => 6,
+                'title' => 'A Boa Sorte',
+                'image' => url('img/livros/carousel/a-garota-do-lago.png'),
+                'link' => 'como-criar-um-site-0/p',
+                'author' => [
+                    'name' => 'Reinan Gabriel',
+                    'slug' => 'reinan-gabriel',
+                ],
+                'price' => 1.99,
+            ],
+            6 => [
+                'id' => 7,
+                'title' => 'ANSIEDADE: COMO ENFRENTAR O MAL DO SÉCULO',
+                'image' => url('img/livros/carousel/a-garota-do-lago.png'),
+                'link' => 'como-criar-um-site-0/p',
+                'author' => [
+                    'name' => 'Reinan Gabriel',
+                    'slug' => 'reinan-gabriel',
+                ],
+                'price' => 1.99,
+            ],
+            7 => [
+                'id' => 8,
+                'title' => 'Como lidar com pessoas manipuladoras',
+                'image' => url('img/livros/carousel/a-garota-do-lago.png'),
+                'link' => 'como-criar-um-site-0/p',
+                'author' => [
+                    'name' => 'Reinan Gabriel',
+                    'slug' => 'reinan-gabriel',
+                ],
+                'price' => 1.99,
+            ],
+            8 => [
+                'id' => 9,
+                'title' => 'Pai Rico, Pai Pobre - Edição de 20 anos',
+                'image' => url('img/livros/carousel/a-garota-do-lago.png'),
+                'link' => 'como-criar-um-site-0/p',
+                'author' => [
+                    'name' => 'Reinan Gabriel',
+                    'slug' => 'reinan-gabriel',
+                ],
+                'price' => 1.99,
+            ],
+            9 => [
+                'id' => 10,
+                'title' => 'O Livro De Enoque',
+                'image' => url('img/livros/carousel/a-garota-do-lago.png'),
+                'link' => 'como-criar-um-site-0/p',
+                'author' => [
+                    'name' => 'Reinan Gabriel',
+                    'slug' => 'reinan-gabriel',
+                ],
+                'price' => 1.99,
+            ],
+            10 => [
+                'id' => 11,
+                'title' => 'Seja foda!',
+                'image' => url('img/livros/carousel/a-garota-do-lago.png'),
+                'link' => 'como-criar-um-site-0/p',
+                'author' => [
+                    'name' => 'Reinan Gabriel',
+                    'slug' => 'reinan-gabriel',
+                ],
+                'price' => 1.99,
+            ],
+            11 => [
+                'id' => 12,
+                'title' => 'A Cabana',
+                'image' => url('img/livros/carousel/a-garota-do-lago.png'),
+                'link' => 'como-criar-um-site-0/p',
+                'author' => [
+                    'name' => 'Reinan Gabriel',
+                    'slug' => 'reinan-gabriel',
+                ],
+                'price' => 1.99,
+            ],
+        ]);
+
+    }
 }

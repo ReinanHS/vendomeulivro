@@ -19,4 +19,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::get('search/{q}', 'Api\SearchController@suggestqueries');
+Route::group(['namespace' => 'Api'], function() {
+    Route::get('search/{q}', 'SearchController@suggestqueries');
+    Route::get('category/find/{id}', 'SearchController@teste');
+});

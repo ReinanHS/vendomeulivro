@@ -58,7 +58,7 @@ export default {
                     url: this.book.link,
                 })
             } catch(err) {
-                console.log(err)
+                $('#modalShare').modal('show')
             }
         },
         favoritos: function(){

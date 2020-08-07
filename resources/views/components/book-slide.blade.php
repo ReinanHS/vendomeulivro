@@ -18,23 +18,25 @@
                 <div class="carousel-cell">
                     <div class="card-container">
                         <div class="card-top placeholdershimmer">
-                        <div class="card-image">
-                            <a href="#">
-                                <img src="{{ url('img/livros/carousel/a-garota-do-lago.png') }}" alt="Capa do livro">
-                                <div class="card-image-effect"></div>
-                            </a>
-                        </div>
-                        <book-card-action-btn :book="{like: false, id: {{ $i }}, code: '{{ $i }}'}"/>
+                            <div class="card-image">
+                                <a href="#">
+                                    <img src="{{ url('img/livros/carousel/a-garota-do-lago.png') }}" alt="Capa do livro">
+                                    <div class="card-image-effect"></div>
+                                </a>
+                            </div>
+                            <book-card-action-btn :book="{like: false, id: {{ $i }}, code: '{{ $i }}'}"></book-card-action-btn>
                         </div>
                         <div class="card-body">
                             <a class="card-title" href="#">
                                 <div class="title" title="A Garota do Lago - Livro 1">
                                     <p>A Garota do Lago - Livro 1</p>
+                                    <div class="text-effect"></div>
                                 </div>
                             </a>
                             <a class="card-author" href="#">
                                 <div class="author" title="Author Marcio Ardenghe D. Peres">
                                     <span>Marcio Ardenghe D. Peres</span>
+                                    <div class="text-effect"></div>
                                 </div>
                             </a>
                         </div>
