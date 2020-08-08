@@ -15,12 +15,12 @@
           </button>
         </div>
         <div class="modal-body">
-          <div class="share-panel">
+          <div class="share-panel" v-if="load">
             <div class="network-section">
               <div class="row social-buttons">
                 <div class="col-xs-2 col-sm-2 col-3 mt-2">
                   <a
-                    :href="`https://www.facebook.com/sharer/sharer.php?u=${this.social.link}`"
+                    :href="`https://www.facebook.com/sharer/sharer.php?u=${social.link}`"
                     class="btn btn-lg btn-block btn-facebook"
                     data-toggle="tooltip"
                     data-placement="top"
@@ -37,7 +37,7 @@
                 </div>
                 <div class="col-xs-2 col-sm-2 col-3 mt-2">
                   <a
-                    :href="`http://twitter.com/share?text=${this.social.title}&url=${this.social.link}`"
+                    :href="`http://twitter.com/share?text=${social.title}&url=${social.link}`"
                     class="btn btn-lg btn-block btn-twitter"
                     data-toggle="tooltip"
                     data-placement="top"
@@ -54,7 +54,7 @@
                 </div>
                 <div class="col-xs-2 col-sm-2 col-3 mt-2">
                   <a
-                    :href="`https://pinterest.com/pin/create/button/?url=${this.social.link}&media=${this.social.image}&hubs_signup-url=null&hubs_signup-cta=null`"
+                    :href="`https://pinterest.com/pin/create/button/?url=${social.link}&media=${social.image}&hubs_signup-url=null&hubs_signup-cta=null`"
                     class="btn btn-lg btn-block btn-pinterest"
                     data-toggle="tooltip"
                     data-placement="top"
@@ -71,7 +71,7 @@
                 </div>
                 <div class="col-xs-2 col-sm-2 col-3 mt-2">
                   <a
-                    :href="`https://www.linkedin.com/shareArticle?mini=true&url=${this.social.link}&title=${this.social.title}&summary=${this.social.summary}`"
+                    :href="`https://www.linkedin.com/shareArticle?mini=true&url=${social.link}&title=${social.title}&summary=${social.summary}`"
                     class="btn btn-lg btn-block btn-linkedin"
                     data-toggle="tooltip"
                     data-placement="top"
@@ -88,7 +88,7 @@
                 </div>
                 <div class="col-xs-2 col-sm-2 col-3 mt-2">
                   <a
-                    :href="`http://tumblr.com/widgets/share/tool?canonicalUrl=${this.social.link}`"
+                    :href="`http://tumblr.com/widgets/share/tool?canonicalUrl=${social.link}`"
                     class="btn btn-lg btn-block btn-tumblr"
                     data-toggle="tooltip"
                     data-placement="top"
@@ -105,7 +105,7 @@
                 </div>
                 <div class="col-xs-2 col-sm-2 col-3 mt-2">
                   <a
-                    :href="`mailto:?subject=${this.social.title}&body=${this.social.link}`"
+                    :href="`mailto:?subject=${social.title}&body=${social.link}`"
                     class="btn btn-lg btn-block btn-email"
                     data-toggle="tooltip"
                     data-placement="top"
@@ -123,7 +123,15 @@
               </div>
             </div>
             <div class="copy-link mt-3">
-              <input ref="copyText" size="45" class="share-url" :value="social.link" disabled />
+              <input
+                ref="copyText"
+                id="copyText"
+                size="45"
+                class="share-url"
+                :value="social.link"
+                :disabled="disabled"
+                @change="inputUpdate"
+              />
               <button
                 v-on:click="copylink()"
                 type="button"
@@ -131,8 +139,11 @@
               >Copiar</button>
             </div>
           </div>
+          <div class="share-load" v-else>
+            <p class="text-center">Carregando as informações do produto...</p>
+          </div>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer" v-if="load">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
         </div>
       </div>
@@ -141,22 +152,28 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "ModalShare",
+  computed: {
+    ...mapGetters("shareDate", ["social", "load"]),
+  },
   data() {
     return {
-      social: {
-        link: "https://vendomeulivro.com/1",
-        title: "Olá Mundo tudo bem?",
-      },
+      disabled: false,
     };
   },
   methods: {
     copylink: function () {
-      this.$refs.copyText.select();
-      this.$refs.copyText.setSelectionRange(0, 99999);
-      document.execCommand("copy");
+        this.disabled = false;
+        this.$refs.copyText.select();
+        this.$refs.copyText.setSelectionRange(0, 99999);
+        document.execCommand("copy");
     },
+    inputUpdate: function(){
+        this.disabled = true;
+        this.$refs.copyText.value = this.social.link
+    }
   },
 };
 </script>

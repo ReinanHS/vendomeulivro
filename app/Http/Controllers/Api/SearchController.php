@@ -222,4 +222,20 @@ class SearchController extends Controller
         ]);
 
     }
+
+    public function find($id){
+        return response()->json([
+            'id' => 1,
+            'title' => 'Como criar um site',
+            'summary' => 'No vendomeulivro.com você encontra as melhores ofertas de Livros. Encontre o menor preço nas melhores lojas!',
+            'image' => url('img/livros/carousel/a-garota-do-lago.png'),
+            'link' => url('como-criar-um-site-0/p'),
+            'author' => [
+                'name' => 'Reinan Gabriel',
+                'slug' => 'reinan-gabriel',
+            ],
+            'price' => 1.99,
+        ]);
+
+    }
 }

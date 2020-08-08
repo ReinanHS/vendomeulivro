@@ -25,7 +25,7 @@
     </div>
 </template>
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions, mapGetters, mapMutations } from 'vuex';
 export default {
     name: 'ActionsButtons',
     props: {
@@ -59,6 +59,7 @@ export default {
                 })
             } catch(err) {
                 $('#modalShare').modal('show')
+                this.getShareData(this.item.id)
             }
         },
         favoritos: function(){
@@ -69,6 +70,7 @@ export default {
             this.carrinho = !this.carrinho
         },
         ...mapActions('shoppingCart', ['updateData', 'getItem']),
+        ...mapActions('shareDate', ['getShareData']),
     },
 }
 </script>
