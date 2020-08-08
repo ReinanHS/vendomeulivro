@@ -3,11 +3,11 @@
         <div class="card-top" :class="{'placeholdershimmer': !imageLoad}">
             <div class="card-image">
                 <a :href="book.link">
-                    <img ref="image" :src="book.image" :alt="'Capa do livro '+ book.title">
+                    <img ref="image" :src="book.image" :alt="'Capa do livro '+ book.title" @load="loaded">
                     <div class="card-image-effect"></div>
                 </a>
             </div>
-            <book-card-action-btn v-if="load" :book="{like: false, id: 1, code: 'reinan'}"/>
+            <book-card-action-btn v-if="load" :book="{like: false, id: book.id, code: 'reinan'}"/>
         </div>
         <div class="card-body">
             <a :class="{'title-load placeholdershimmer': !load}" class="card-title" :href="book.link">
@@ -55,7 +55,7 @@ export default {
         }
     },
     methods: {
-        imgLoaded: function(){
+        loaded: function () {
             this.imageLoad = true
         }
     },
