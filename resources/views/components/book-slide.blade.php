@@ -1,10 +1,10 @@
-<section class="book-list pt-4" style="background: #efefef;">
+<section class="book-list pt-4" style="background: {{ $background ?? 'initial' }};">
     <div class="container-fluid">
         <div class="container mb-2">
             <div class="row">
                 <div class="col-12 col-md-9 d-flex justify-content-md-start justify-content-center">
                     <a href="#" class="book-title">
-                        <h2>Os mais vendidos</h2>
+                        <h2>{{ $title ?? 'Listagem dos produtos' }}</h2>
                     </a>
                 </div>
                 <div class="col-12 col-md-3 d-flex justify-content-end justify-content-center">
@@ -57,4 +57,3 @@
         </div>
     </div>
 </section>
-<br><br><br><br>

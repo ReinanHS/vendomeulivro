@@ -52,13 +52,13 @@
                         color: rgba(255,255,255,.75);
                     }
 
-                    &:hover > .nav-link .bi.bi-chevron-compact-down{
-                        display: none;
-                    }
+                    // &:hover > .nav-link .bi.bi-chevron-compact-down{
+                    //     display: none;
+                    // }
 
-                    &:hover > .nav-link .bi.bi-chevron-up{
-                        display: inline;
-                    }
+                    // &:hover > .nav-link .bi.bi-chevron-up{
+                    //     display: inline;
+                    // }
 
                     .nav-link {
                         padding: 5px;
@@ -117,13 +117,13 @@
         }
     }
 
-    .dropdown:hover>.dropdown-menu {
-        display: block;
-    }
+    // .dropdown:hover>.dropdown-menu {
+    //     display: block;
+    // }
 
-    .dropdown>.dropdown-toggle:active {
-        pointer-events: none;
-    }
+    // .dropdown>.dropdown-toggle:active {
+    //     pointer-events: none;
+    // }
 
 
     #dropdown-menu1 {

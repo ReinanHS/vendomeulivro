@@ -1,15 +1,15 @@
 .product-section {
     background-color: #f5f5f5;
-    margin-top: -25px;
+    margin-top      : -25px;
 
-    & > .container{
-        background-color  : #fff;
-        padding           : 1.5rem;
-        padding-right     : 1.5rem;
-        padding-left      : 1.5rem;
-        box-shadow        : 0 1px 4px 0 rgba(0, 0, 0, .1);
-        margin-bottom     : 24px;
-        border-radius     : .25rem;
+    &>.container {
+        background-color: #fff;
+        padding         : 1.5rem;
+        padding-right   : 1.5rem;
+        padding-left    : 1.5rem;
+        box-shadow      : 0 1px 4px 0 rgba(0, 0, 0, .1);
+        margin-bottom   : 24px;
+        border-radius   : .25rem;
     }
 
 
@@ -46,8 +46,8 @@
             }
         }
 
-        .product-pics-list{
-            .nav-item a img{
+        .product-pics-list {
+            .nav-item a img {
                 max-height: 45px;
             }
         }
@@ -180,6 +180,213 @@
                             min-height      : 69px;
                             background-color: transparent;
                             border-radius   : 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        .product-info {
+            .title {
+                font-size     : 20px;
+                font-weight   : 700;
+                color         : #414141;
+                text-transform: uppercase;
+            }
+
+            .list-features {
+                display   : flex;
+                flex-wrap : wrap;
+                list-style: none;
+
+                .list-item {
+                    width        : 50%;
+                    font-size    : 14px;
+                    margin-bottom: 1em;
+
+                    strong {
+                        color  : #31acb4;
+                        display: block;
+
+                        &::after {
+                            content: ':';
+                        }
+                    }
+
+                    span {
+                        font-size: 16px;
+                    }
+
+                    @media (max-width: 500px) {
+                        & {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+
+            .resenhas-box {
+                .average-rating {
+                    span {
+                        color: transparent;
+                    }
+                }
+
+                .review-listing {
+                    .card-review {
+                        .card-user-photo {
+                            width: 50px;
+
+                            img {
+                                border-radius: 24px;
+                                box-shadow   : 0 1px 2px #8d8d8d;
+                                height       : 48px;
+                                margin-top   : 10px;
+                                width        : 48px;
+                            }
+                        }
+
+                        .card-box {
+                            margin-left: 12px;
+
+                            .card-top {
+                                width  : 100%;
+                                display: flex;
+
+                                .user-name {
+                                    width: 90%;
+
+                                    span {
+                                        font-weight: 500;
+                                    }
+
+                                    .user-rating {
+                                        span {
+                                            color: transparent;
+                                        }
+
+                                        time {
+                                            color      : #aaa;
+                                            display    : inline-block;
+                                            font-size  : 12px;
+                                            margin-left: 3px;
+                                        }
+                                    }
+
+                                    .sub-title {
+                                        height         : 52px;
+                                        display        : flex;
+                                        justify-content: flex-start;
+                                        align-items    : flex-end;
+
+                                        @media (max-width: 576px) {
+                                            display: none;
+                                        }
+                                    }
+                                }
+
+                                .votes {
+                                    display        : flex;
+                                    justify-content: center;
+                                    align-items    : center;
+                                    text-align     : center;
+                                    flex-wrap      : wrap;
+                                    max-width      : 70px;
+                                    border         : 1px solid #f0f0f0;
+
+                                    .vote-down,
+                                    .vote-up {
+                                        background     : #f0f0f0;
+                                        font-size      : 24px;
+                                        cursor         : pointer;
+                                        width          : 100%;
+                                        display        : flex;
+                                        justify-content: center;
+                                        align-items    : center;
+                                        color          : #666;
+
+                                        &.active {
+                                            color: #31acb4 !important;
+                                        }
+                                    }
+
+                                    .stats-down,
+                                    .stats-up {
+                                        font-size : 11px;
+                                        color     : #666;
+                                        text-align: center;
+                                        width     : 100%;
+                                    }
+
+                                    .stats-up::before {
+                                        content: '+';
+                                    }
+
+                                    .stats-down::before {
+                                        content: '-';
+                                    }
+
+                                    .score {
+                                        font-size  : 22px;
+                                        line-height: 0.8;
+                                        font-weight: 700;
+                                        color      : #31acb4;
+                                    }
+                                }
+                            }
+
+                            .card-content {
+                                width: 97%;
+
+                                span {
+                                    text-align: justify;
+                                }
+                            }
+
+                            .card-top,
+                            .card-content {
+                                h3 {
+                                    font-size     : 16px;
+                                    font-weight   : 700;
+                                    color         : #414141;
+                                    text-transform: uppercase;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .perguntas {
+                .form-inline {
+                    .form-group {
+                        width       : 50% !important;
+                        margin-right: 10px;
+
+                        textarea {
+                            height: 48px;
+                            width : 100%;
+                        }
+                    }
+
+                    button {
+                        height       : 45px;
+                        margin-bottom: 0px !important;
+                    }
+                }
+
+                .questions-asked{
+                    margin-top: 30px;
+
+                    .question-box{
+                        .question-text{
+                            a{
+                                display: none;
+                            }
+
+                            &:hover > a{
+                                display: inline;
+                            }
                         }
                     }
                 }
