@@ -196,11 +196,13 @@
                 <div class="container perguntas">
                     <h2 class="title mb-4">Perguntas e respostas</h2>
                     <p class="subtitle mt-4">Qual informação você precisa?</p>
-                    <div class="d-flex">
-                        <a href="#" class="btn btn-outline-primary ml-2 mt-3 mt-md-0">Custo e prazo de envio</a>
-                        <a href="#" class="btn btn-outline-primary ml-2 mt-3 mt-md-0">Meios de pagamento</a>
-                        <a href="#" class="btn btn-outline-primary ml-2 mt-3 mt-md-0">Garantia</a>
-                        <a href="#" class="btn btn-outline-primary ml-2 mt-3 mt-md-0">Devoluções grátis</a>
+                    <div class="row">
+                        <div class="col-12 mt-3 mt-md-0">
+                            <a href="#" class="btn btn-outline-primary">Custo e prazo de envio</a>
+                            <a href="#" class="btn btn-outline-primary">Meios de pagamento</a>
+                            <a href="#" class="btn btn-outline-primary">Garantia</a>
+                            <a href="#" class="btn btn-outline-primary">Devoluções grátis</a>
+                        </div>
                     </div>
                     <p class="subtitle mt-4">Ou pergunte ao vendedor</p>
                     <form class="form-inline">
