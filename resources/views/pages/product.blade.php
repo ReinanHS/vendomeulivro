@@ -126,71 +126,7 @@
                 </div>
             </div>
             <div class="col-12 mt-4 product-info">
-                <div class="container resenhas-box">
-                    <h2 class="title mb-4">Opiniões sobre o produto</h2>
-                    <div class="average-rating">
-                        <div class="section-rating d-flex">
-                            <div>
-                                <h3 class="p-price text-center">4.5</h3>
-                                <h4>
-                                    <span aria-hidden="true" style="background: rgba(0, 0, 0, 0) linear-gradient(to right, rgb(255, 204, 51) 92.4%, rgb(204, 204, 204) 70%) repeat scroll 0% 0% padding-box text;">★★★★★</span>
-                                </h4>
-                            </div>
-                            <div class="ml-4">
-                                <p>Média entre 2 opiniões</p>
-                                <button type="button" class="btn btn-outline-primary">
-                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                                    </svg>
-                                    Escrever uma avaliação
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="review-listing mt-4">
-                        @for ($i = 0; $i < 5; $i++)
-                        <article class="card-review d-flex mb-4">
-                            <div class="card-user-photo">
-                                <img src="https://lh3.googleusercontent.com/a-/AOh14GhweaRz3NjqTbhF5cdNvFJOMQxnRY9fnSCY4wZtUg=w48-h48-n" aria-hidden="true">
-                            </div>
-                            <div class="card-box">
-                                <div class="card-top">
-                                    <div class="user-name">
-                                        <span>Edna Valim</span>
-                                        <div class="user-rating">
-                                            <span aria-hidden="true" style="background: rgba(0, 0, 0, 0) linear-gradient(to right, rgb(255, 204, 51) 92.4%, rgb(204, 204, 204) 70%) repeat scroll 0% 0% padding-box text;">★★★★★</span>
-                                            <time>8 de agosto de 2020</time>
-                                        </div>
-                                        <div class="sub-title">
-                                            <h3>Estou feliz otimista, determinada .</h3>
-                                        </div>
-                                    </div>
-                                    <div class="votes">
-                                        <div class="vote-up active">
-                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-up-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M7.247 4.86l-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
-                                            </svg>
-                                        </div>
-                                        <div class="stats-up">55</div>
-                                        <div class="score">41</div>
-                                        <div class="stats-down">14</div>
-                                        <div class="vote-down">
-                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-down-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-content">
-                                    <h3 class="mt-4 d-block d-sm-none">Estou feliz otimista, determinada .</h3>
-                                    <span>Desrespeito!!! O aplicativo apresenta um número de telefone para validação, no qual devo receber o código, só que nunca pertenceu a minha pessoa...nunca! E não tem como fazer alteração pelo aplicativo. O objetivo é que as pessoas não precisem se deslocar até uma agência, mas o que adianta??? Pede para eu ir até uma. Desrespeito, parece que fazem de propósito para dificultar o acesso ao dinheiro que é do cidadão!</span>
-                                </div>
-                            </div>
-                        </article>
-                        @endfor
-                    </div>
-                </div>
+                <product-rating></product-rating>
             </div>
             <div class="col-12 mt-4 product-info">
                 <div class="container perguntas">
@@ -251,4 +187,5 @@
         @include('components.book-slide', ['title' => 'Mais Populares'])
     </div>
 </section>
+<modal-avaliacao></modal-avaliacao>
 @endsection

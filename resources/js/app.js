@@ -28,6 +28,9 @@ Vue.component('book-card', require('./components/Category/BookCard.vue').default
 Vue.component('book-card-action-btn', require('./components/Category/ActionsButtons.vue').default);
 Vue.component('modal-share', require('./components/Category/ModalShare.vue').default);
 Vue.component('shopping-cart', require('./components/ShoppingCart.vue').default);
+Vue.component('product-rating', require('./components/Product/ProductRating.vue').default);
+Vue.component('modal-avaliacao', require('./components/Product/ModalAvaliacao.vue').default);
+Vue.component('product-review', require('./components/Product/ProductReview.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
