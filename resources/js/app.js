@@ -31,6 +31,9 @@ Vue.component('shopping-cart', require('./components/ShoppingCart.vue').default)
 Vue.component('product-rating', require('./components/Product/ProductRating.vue').default);
 Vue.component('modal-avaliacao', require('./components/Product/ModalAvaliacao.vue').default);
 Vue.component('product-review', require('./components/Product/ProductReview.vue').default);
+Vue.component('pergunta-vendedor', require('./components/Product/PerguntaVendedor.vue').default);
+Vue.component('pergunta', require('./components/Product/Pergunta.vue').default);
+Vue.component('product-image', require('./components/Product/ProductImage.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

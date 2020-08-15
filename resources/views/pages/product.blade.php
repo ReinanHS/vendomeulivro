@@ -8,24 +8,7 @@
             <a href="./category.html"> &lt;&lt; Voltar aos resultados</a>
         </div>
         <div class="row mt-4 product-box">
-            <div class="col-lg-5 col-sm-12 mb-xl-0 mb-4 d-flex justify-content-center">
-                <div class="product-pic">
-                    <img class="product-img" src="https://i.pinimg.com/originals/d8/16/c4/d816c439000eea434f997ff7cedebc42.jpg" alt="">
-                </div>
-                <div class="product-share">
-                    <div class="btn-like">
-                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                        </svg>
-                    </div>
-                    <div class="btn-share">
-                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-share-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M12.024 3.797L4.499 7.56l-.448-.895 7.525-3.762.448.894zm-.448 9.3L4.051 9.335 4.5 8.44l7.525 3.763-.448.894z"/>
-                            <path fill-rule="evenodd" d="M13.5 5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm0 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm-11-5.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
+            <product-image src-image="https://i.pinimg.com/originals/d8/16/c4/d816c439000eea434f997ff7cedebc42.jpg" alt-image="White peplum top"></product-image>
             <div class="col-lg-7 col-sm-12 mt-4 mt-xl-0 product-details">
                 <h2 class="p-title">White peplum top</h2>
                 <p class="book-author">
@@ -141,41 +124,7 @@
                         </div>
                     </div>
                     <p class="subtitle mt-4">Ou pergunte ao vendedor</p>
-                    <form class="form-inline">
-                        <div class="form-group">
-                            <textarea class="form-control" rows="1" name="question" placeholder="Escreva uma pergunta..." title="Escreva uma pergunta..." maxlength="1500" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary mb-2">Perguntar</button>
-                    </form>
-                    <div class="questions-asked">
-                        <p class="subtitle mt-4 mb-4">Últimas perguntas </p>
-                        @for ($i = 0; $i < 10; $i++)
-                        <article class="question-box mb-4">
-                            <div class="question d-flex">
-                                <div class="question-icon mr-3 text-secondary">
-                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chat-left-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                                    </svg>
-                                </div>
-                                <div class="question-text d-flex">
-                                    <p class="text-muted">Vcs tem o outro do Caio Carneiro pra mim comprar os dois</p>
-                                    <a class="questions-denounce ml-2" href="#">Denunciar</a>
-                                </div>
-                            </div>
-                            <div class="answer d-flex">
-                                <div class="question-icon mr-3 text-secondary">
-                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chat-right-dots-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h9.586a1 1 0 0 1 .707.293l2.853 2.853a.5.5 0 0 0 .854-.353V2zM5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-                                    </svg>
-                                </div>
-                                <div class="question-text d-flex">
-                                    <p class="font-weight-lighter">Bom dia nossa postagem e imediata, favor conferir no seu login.</p>
-                                    <a class="questions-denounce ml-2" href="#">Denunciar</a>
-                                </div>
-                            </div>
-                        </article>
-                        @endfor
-                    </div>
+                    <pergunta-vendedor></pergunta-vendedor>
                 </div>
             </div>
         </div>
