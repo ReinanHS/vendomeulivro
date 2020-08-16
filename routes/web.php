@@ -14,10 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'Store\HomeController@home');
-Route::get('/{q}/p', function($q){
-    return view('pages.product');
-});
-
+Route::get('/{slug}/p', 'Api\DebugController@product');
 
 Route::get('busca/{q}', 'Api\SearchController@busca');
 

@@ -47,8 +47,11 @@
                 </div>
             </div>
         </div>
-        <div class="review-listing mt-4">
+        <div v-if="reviews.length <= 0" class="review-listing mt-4">
             <product-review v-for="i in 5" :key="`preload-${i}`" :loadCard="false"></product-review>
+        </div>
+        <div v-else class="review-listing mt-4">
+            <product-review v-for="review in reviews" :key="review.id" :review="review"></product-review>
         </div>
     </div>
 </template>
@@ -56,6 +59,22 @@
 <script>
 export default {
     name: "ProductRating",
+    props: {
+        product:{
+            type: String,
+            default: 'a',
+        },
+    },
+    mounted(){
+        axios(`/product/rating/${this.$props.product}`).then((result) => {
+            this.rating = result.data
+            this.load = true
+        })
+
+        axios(`/product/avaliacao/${this.$props.product}`).then((result) => {
+            this.reviews.push(...result.data.data)
+        })
+    },
     data() {
         return {
             rating: {
@@ -64,6 +83,7 @@ export default {
             },
             load: false,
             avaliacao: false,
+            reviews: [],
         };
     },
     methods: {

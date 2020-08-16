@@ -1,24 +1,40 @@
 <template>
     <div class="card-container">
-        <div class="card-top" :class="{'placeholdershimmer': !imageLoad}">
+        <div
+            class="card-top"
+            :class="{'placeholdershimmer': !imageLoad, 'load-image-effect': !imageLoad}"
+        >
             <div class="card-image">
-                <a :href="book.link">
-                    <img ref="image" :src="book.image" :alt="'Capa do livro '+ book.title" @load="loaded">
+                <a :href="book.link" v-if="book.image">
+                    <img
+                        ref="image"
+                        :src="book.image"
+                        :alt="'Capa do livro '+ book.title"
+                        @load="loaded"
+                    />
                     <div class="card-image-effect"></div>
                 </a>
             </div>
-            <book-card-action-btn v-if="load" :book="{like: false, id: book.id, code: 'reinan'}"/>
+            <book-card-action-btn v-if="load" :book="{like: false, id: book.id, code: 'reinan'}" />
         </div>
         <div class="card-body">
-            <a :class="{'title-load placeholdershimmer': !load}" class="card-title" :href="book.link">
+            <a
+                :class="{'title-load placeholdershimmer': !load}"
+                class="card-title"
+                :href="book.link"
+            >
                 <div v-if="load" class="title" :title="book.title">
                     <p>{{ book.title }}</p>
                     <div class="text-effect"></div>
                 </div>
             </a>
-            <a :class="{'author-load placeholdershimmer': !load}" class="card-author" :href="((!load) ? '#load' : book.author.slug)">
-                <div v-if="load" class="author" :title="'Author '+book.author.name">
-                    <span>{{ book.author.name }}</span>
+            <a
+                :class="{'author-load placeholdershimmer': !load}"
+                class="card-author"
+                :href="((!load) ? '#load' : book.link)"
+            >
+                <div v-if="load" class="author" :title="book.subtitle">
+                    <span>{{ book.subtitle }}</span>
                     <div class="text-effect"></div>
                 </div>
             </a>
@@ -39,7 +55,7 @@
 </template>
 <script>
 export default {
-    name: 'BookCard',
+    name: "BookCard",
     props: {
         load: {
             type: Boolean,
@@ -47,39 +63,52 @@ export default {
         },
         book: {
             type: Object,
-        }
+            default: function () {
+                return {
+                    image: null,
+                    title: "",
+                    subtitle: "",
+                    price: 0,
+                    link: "",
+                };
+            },
+        },
     },
     data() {
         return {
             imageLoad: false,
-        }
+        };
     },
     methods: {
         loaded: function () {
-            this.imageLoad = true
-        }
+            this.imageLoad = true;
+        },
     },
-}
+};
 </script>
-<style lang="css" scope>
-  .title-load, .author-load{
-        height: 25px;
-        width: 70%;
-        display: block;
-        margin-left: 15%;
-  }
+<style lang="scss" scope>
+.title-load,
+.author-load {
+    height: 25px;
+    width: 70%;
+    display: block;
+    margin-left: 15%;
+}
 
-  .author-load{
-      width: 90%;
-      margin-left: 5%;
-  }
+.author-load {
+    width: 90%;
+    margin-left: 5%;
+}
 
-  .stars-load{
-      height: 16px;
-      width: 80%;
-  }
+.stars-load {
+    height: 16px;
+    width: 80%;
+}
 
-  .price-load{
-      width: 50%;
-  }
+.price-load {
+    width: 50%;
+}
+.load-image-effect {
+    height: 325px;
+}
 </style>

@@ -34,6 +34,7 @@ Vue.component('product-review', require('./components/Product/ProductReview.vue'
 Vue.component('pergunta-vendedor', require('./components/Product/PerguntaVendedor.vue').default);
 Vue.component('pergunta', require('./components/Product/Pergunta.vue').default);
 Vue.component('product-image', require('./components/Product/ProductImage.vue').default);
+Vue.component('search-box', require('./components/Search/SearchComponent.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -51,13 +52,17 @@ window.onload = function () {
 
     if(cardImages.length > 0){
         cardImages.map(card => {
+            const cardImage = card.querySelector('.card-image a img');
 
-            let imageLoad = new Image();
-            imageLoad.src = card.querySelector('.card-image a img').src;
+            if(cardImage != null){
+                let imageLoad = new Image();
+                imageLoad.src = cardImage.src;
 
-            imageLoad.onload = function() {
-                card.classList.remove('placeholdershimmer')
+                imageLoad.onload = function() {
+                    card.classList.remove('placeholdershimmer')
+                }
             }
+
         })
     }
 };

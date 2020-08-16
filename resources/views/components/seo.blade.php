@@ -41,7 +41,13 @@
 <!-- Open Graph Facebook -->
 <meta property="og:url" content="{{ url()->current() }}">
 <meta property="og:site_name" content="Vendo meu livro"/>
-<meta property="og:image" content="https://exemplo.com/imagem.png">
+
+@if (isset($seo['product']['image'][0]))
+<meta property="og:image" content="{!! $seo['product']['image'][0] !!}">
+@else
+<meta property="og:image" content="{{ url('/img/www.vendomeulivro.com.png') }}">
+@endif
+
 @if ( isset($seo['product']) )
     <meta property="og:type" content="og:product" />
 
@@ -98,7 +104,13 @@
 <!-- Twitter -->
 <meta name="twitter:url" content="{{ url()->current() }}">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://exemplo.com/imagem.png">
+
+@if (isset($seo['product']['image'][0]) )
+<meta name="twitter:image" content="{!! $seo['product']['image'][0] !!}">
+@else
+<meta name="twitter:image" content="{{ url('/img/www.vendomeulivro.com.png') }}">
+@endif
+
 <meta name="twitter:creator" content="@ReinanGabriel9">
 {{--  <meta name="twitter:site" content="@empresa">  --}}
 

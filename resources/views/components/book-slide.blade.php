@@ -13,46 +13,48 @@
             </div>
         </div>
         <div class="col-12">
-            <category-list>
-                @for ($i = 0; $i < 4; $i++)
-                <div class="carousel-cell">
-                    <div class="card-container">
-                        <div class="card-top placeholdershimmer">
-                            <div class="card-image">
-                                <a href="#">
-                                    <img src="{{ url('img/livros/carousel/a-garota-do-lago.png') }}" alt="Capa do livro">
-                                    <div class="card-image-effect"></div>
+            <category-list :carousel-id="'{{ $item['id'] }}'">
+                @isset($item['items'])
+                    @foreach ($item['items'] as $livro)
+                    <div class="carousel-cell">
+                        <div class="card-container">
+                            <div class="card-top placeholdershimmer">
+                                <div class="card-image">
+                                    <a href="{{ $livro['link'] }}">
+                                        <img src="{{ $livro['image'] }}" alt="Capa do livro {{ $livro['title'] }}">
+                                        <div class="card-image-effect"></div>
+                                    </a>
+                                </div>
+                                <book-card-action-btn :book="{like: false, id: {{ $livro['id'] }}, code: '{{ $livro['id'] }}'}"></book-card-action-btn>
+                            </div>
+                            <div class="card-body">
+                                <a class="card-title" href="{{ $livro['link'] }}">
+                                    <div class="title" title="{{ $livro['title'] }}">
+                                        <p>{{  $livro['title'] }}</p>
+                                        <div class="text-effect"></div>
+                                    </div>
+                                </a>
+                                <a class="card-author" href="{{ $livro['link'] }}">
+                                    <div class="author" title="{{ $livro['subtitle'] }}">
+                                        <span>{{ $livro['subtitle'] }}</span>
+                                        <div class="text-effect"></div>
+                                    </div>
                                 </a>
                             </div>
-                            <book-card-action-btn :book="{like: false, id: {{ $i }}, code: '{{ $i }}'}"></book-card-action-btn>
-                        </div>
-                        <div class="card-body">
-                            <a class="card-title" href="#">
-                                <div class="title" title="A Garota do Lago - Livro 1">
-                                    <p>A Garota do Lago - Livro 1</p>
-                                    <div class="text-effect"></div>
+                            <div class="card-button">
+                            <div class="rating-section">
+                                <div class="stars-rating">
+                                    <div class="stars"></div>
                                 </div>
-                            </a>
-                            <a class="card-author" href="#">
-                                <div class="author" title="Author Marcio Ardenghe D. Peres">
-                                    <span>Marcio Ardenghe D. Peres</span>
-                                    <div class="text-effect"></div>
+                                <div class="card-price">
+                                    <a href="{{ $livro['link'] }}">R$ {{ $livro['price'] }}</a>
                                 </div>
-                            </a>
-                        </div>
-                        <div class="card-button">
-                        <div class="rating-section">
-                            <div class="stars-rating">
-                                <div class="stars"></div>
                             </div>
-                            <div class="card-price">
-                            <a href="#">R$ 70,99</a>
                             </div>
-                        </div>
                         </div>
                     </div>
-                </div>
-                @endfor
+                    @endforeach
+                @endisset
             </category-list>
         </div>
     </div>

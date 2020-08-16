@@ -11,6 +11,44 @@ class HomeController extends Controller
         return view('pages.home', [
             'seo' => $this->getSEO(),
             'carousels' => $this->getCarousel(),
+            'categorias' => [
+                [
+                    'id' => 'os mais vendidos',
+                    'title' => 'Os mais vendidos',
+                ],
+                [
+                    'id' => 'vida',
+                    'title' => 'Livros para uma vida saudável ',
+                ],
+                [
+                    'id' => 'literatura',
+                    'title' => 'Ficção e literatura',
+                ],
+                [
+                    'id' => 'biografia',
+                    'title' => 'Biografias e memórias',
+                ],
+                [
+                    'id' => 'misterio',
+                    'title' => 'Mistério e suspense',
+                ],
+                [
+                    'id' => 'educacao',
+                    'title' => 'Educação',
+                ],
+                [
+                    'id' => 'autoajuda',
+                    'title' => 'Autoajuda',
+                ],
+                [
+                    'id' => 'psicologia',
+                    'title' => 'Psicologia',
+                ],
+                [
+                    'id' => 'investimentos',
+                    'title' => 'Negócios e investimentos',
+                ],
+            ],
         ]);
     }
 
@@ -26,26 +64,26 @@ class HomeController extends Controller
                 'comparar preços de livros',
                 'compare preços'
             ],
-            'product' => [
-                'image' => [
-                    "https://example.com/photos/1x1/photo.jpg",
-                    "https://example.com/photos/4x3/photo.jpg",
-                    "https://example.com/photos/16x9/photo.jpg"
-                ],
-                'id' => 10615318,
-                'editora' => 'Editora Brasil',
-                'offers' => [
-                    'lowPrice' => 10.50,
-                    'highPrice' => 18.99,
-                ],
-                'review' => [
-                    'rating' => 3,
-                    'name' => 'Reinan Gabriel',
-                    'headline' => 'Bem legal',
-                    'body' => 'Chegue logo, Emocionante. Final incrível. História envolvente. O melhor do autor. Personagens memoráveis.',
-                    'date' => '2020-05-26'
-                ],
-            ],
+            // 'product' => [
+            //     'image' => [
+            //         "https://example.com/photos/1x1/photo.jpg",
+            //         "https://example.com/photos/4x3/photo.jpg",
+            //         "https://example.com/photos/16x9/photo.jpg"
+            //     ],
+            //     'id' => 10615318,
+            //     'editora' => 'Editora Brasil',
+            //     'offers' => [
+            //         'lowPrice' => 10.50,
+            //         'highPrice' => 18.99,
+            //     ],
+            //     'review' => [
+            //         'rating' => 3,
+            //         'name' => 'Reinan Gabriel',
+            //         'headline' => 'Bem legal',
+            //         'body' => 'Chegue logo, Emocionante. Final incrível. História envolvente. O melhor do autor. Personagens memoráveis.',
+            //         'date' => '2020-05-26'
+            //     ],
+            // ],
         ];
     }
 

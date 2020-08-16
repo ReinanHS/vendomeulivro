@@ -38,11 +38,24 @@
 <script>
 export default {
     name: "PerguntaVendedor",
+    props: {
+        product: {
+            type: String,
+            default: 'a',
+        },
+    },
+    mounted(){
+        axios(`/product/pergunta/${this.$props.product}`).then((result) => {
+            this.perguntas.push(...result.data.data)
+            this.pagination = result.data
+        })
+    },
     data() {
         return {
             pergunta: '',
             submitBtn: false,
             perguntas: [],
+            pagination: {},
         };
     },
     watch: {

@@ -33,32 +33,32 @@
                                 <div class="cart-items">
                                     <div class="cart-item" v-for="(item, index) in items" :key="index">
                                         <div class="item-image">
-                                            <a href="/a-garota-do-lago-9411225/p">
-                                                <img src="http://lojasaraiva.vteximg.com.br/arquivos/ids/12109069-100-100/1006574337.jpg?v=637142248039070000" alt="A Garota do Lago">
+                                            <a :href="item.link">
+                                                <img :src="item.image" :alt="item.title">
                                             </a>
                                         </div>
                                         <div class="item-info">
-                                            <div class="item-name">
-                                                <a href="/a-garota-do-lago-9411225/p">A Garota do Lago</a>
+                                            <div class="item-name pr-2">
+                                                <a :href="item.link">{{ item.title }}</a>
                                             </div>
                                             <div class="item-quantity">
-                                                <a title="Diminuir a quantidade" class="item-quantity-change item-quantity-change-decrement">
+                                                <a v-on:click="quantidadeAction(index,'diminuir')"  title="Diminuir a quantidade" class="item-quantity-change item-quantity-change-decrement">
+                                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-down-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                                                    </svg>
+                                                </a>
+                                                <input type="text" :placeholder="item.quantidade" disabled="disabled">
+                                                <a v-on:click="quantidadeAction(index, 'aumentar')" title="Aumentar a quantidade" class="item-quantity-change item-quantity-change-increment">
                                                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-up-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M7.247 4.86l-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
                                                     </svg>
                                                 </a>
-                                                <input type="text" placeholder="1" disabled="disabled">
-                                                <a title="Aumentar a quantidade" class="item-quantity-change item-quantity-change-increment">
-                                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-down-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
-                                                    </svg>
-                                                </a>
                                             </div>
                                             <div class="item-price">
-                                                <div class="cart-price">
-                                                    <span class="item-price-top">R$ 39,90</span>
+                                                <div class="cart-price ml-3">
+                                                    <span class="item-price-top">Unidade R$ {{ item.price }}</span>
                                                     <span class="item-price-buttom">
-                                                        <span>R$</span>14,90
+                                                        <span>Total R$</span>{{ getSubTotalItem(item.price, item.quantidade) }}
                                                     </span>
                                                 </div>
                                                 <div class="item-remove">
@@ -71,15 +71,15 @@
                                 <div class="cart-buttom">
                                     <div class="sub-total">
                                         <p>Sub-total</p>
-                                        <p class="valor">R$ 39,90</p>
+                                        <p class="valor">R$ {{ subTotal }}</p>
                                     </div>
                                     <div class="total">
                                         <p>Desconto</p>
-                                        <p class="valor">R$ 25,00</p>
+                                        <p class="valor">R$ 0,00</p>
                                     </div>
                                     <div class="desconto">
                                         <p>Total</p>
-                                        <p class="valor">R$ 14,90</p>
+                                        <p class="valor">R$ {{ subTotal }}</p>
                                     </div>
                                     <div class="botao">
                                         <a href="/checkout/#/cart">Finalizar pedido</a>
@@ -98,15 +98,21 @@
     </div>
 </template>
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions, mapMutations } from 'vuex'
 export default {
     name: 'ShoppingCart',
     computed: {
         ...mapGetters('shoppingCart', ['length', 'items'])
     },
+    mounted(){
+        setTimeout(() => {
+            this.subTotal = this.getSubTotal()
+        }, 1500)
+    },
     data() {
         return {
             isOpen: false,
+            subTotal: 0.0,
         }
     },
     methods: {
@@ -116,7 +122,40 @@ export default {
         open: function(){
             this.isOpen = true
         },
+        getSubTotal: function(){
+            let y = 0.0
+
+            this.items.map(item => {
+                let n = parseFloat(item.price.replace(',', '.'))
+                y += n * parseInt(item.quantidade)
+            })
+
+            const total = y.toFixed(2)
+
+            return total
+        },
+        getSubTotalItem: function(price, quantidade){
+            let valor = price.replace(',', '.')
+            valor = parseFloat(valor)
+
+            valor = valor * quantidade
+
+            return valor.toFixed(2);
+        },
+        quantidadeAction: function(index, action){
+            const book = this.items[index];
+
+            if(action == 'diminuir' && book.quantidade > 1){
+                book.quantidade -= 1;
+            }else if(action == 'aumentar' && book.quantidade < 10){
+                book.quantidade += 1;
+            }
+
+            this.update(this.items);
+            this.subTotal = this.getSubTotal()
+        },
         ...mapActions('shoppingCart', ['updateData']),
+        ...mapMutations('shoppingCart', ['update']),
     },
 }
 </script>

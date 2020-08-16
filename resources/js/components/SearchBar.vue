@@ -111,12 +111,11 @@ export default {
                 this.suggestion = []
             }else{
 
-                fetch(`${this.siteUrl}/api/search/${encodeURIComponent(value)}`)
-                .then(response => response.json())
-                .then(suggestion => {
+                axios(`/search-autocomplete/${encodeURIComponent(value)}`)
+                .then(result => {
                     this.suggestion = []
 
-                    suggestion.map(livro => {
+                    result.data.map(livro => {
                         if(livro != '' && this.search.length > 0){
                             let cache = this.getSuggestionCache().find(item => item.title == livro) == undefined ? false : true
                             this.suggestion.push({title: livro, cache: cache })

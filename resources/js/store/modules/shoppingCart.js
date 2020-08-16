@@ -20,6 +20,7 @@ export default{
     mutations: {
         update: (state, items) => {
             state.books = items
+            localStorage.setItem('shoppingCart', JSON.stringify(items))
         },
     },
     actions: {
@@ -28,10 +29,20 @@ export default{
 
             if(items.find(book => book.id == item.id) != undefined){
                 items = items.filter(book => book.id != item.id)
-            }else items.push(item)
 
-            context.commit('update', items)
-            localStorage.setItem('shoppingCart', JSON.stringify(items))
+                context.commit('update', items)
+                localStorage.setItem('shoppingCart', JSON.stringify(items))
+            }else {
+                axios.get(`/product/find/${item.id}`).then((result) => {
+                    items.push({
+                        ...result.data,
+                        quantidade: 1,
+                    })
+
+                    context.commit('update', items)
+                })
+
+            }
         },
         getItem: (context, id) => {
             let items = context.getters.items

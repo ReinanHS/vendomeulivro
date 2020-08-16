@@ -1,26 +1,28 @@
-@extends('layouts.app')
+@extends('layouts.app', ['seo' => $seo])
 @section('content')
 
 
 <section class="product-section mb-4">
     <div class="container mt-4">
         <div class="back-link">
-            <a href="./category.html"> &lt;&lt; Voltar aos resultados</a>
+            <a href="{{ url('/busca/'.$data['title']) }}"> &lt;&lt; Voltar aos resultados</a>
         </div>
         <div class="row mt-4 product-box">
-            <product-image src-image="https://i.pinimg.com/originals/d8/16/c4/d816c439000eea434f997ff7cedebc42.jpg" alt-image="White peplum top"></product-image>
+            <product-image src-image="{{$data['image'] }}" alt-image="{{$data['title'] }}"></product-image>
             <div class="col-lg-7 col-sm-12 mt-4 mt-xl-0 product-details">
-                <h2 class="p-title">White peplum top</h2>
+                <h2 class="p-title">{{$data['title'] }}</h2>
                 <p class="book-author">
-                    Autor <a href="#">Regina Porter</a>
+                    @foreach ($data['book']['authors'] as $name)
+                    Autor <a href="#">{{ $name }}</a>
+                    @endforeach
                 </p>
                 <p class="book-publishing">
-                    Editora: <a href="#">Faro Editorial</a>
+                    Editora: <a href="#">{{$data['book']['publisher'] }}</a>
                 </p>
                 <div class="d-flex">
                     <div class="section-price">
-                        <h3 class="p-price">R$39,90</h3>
-                        <h4 class="p-stock">Disponível: <span>Amazon</span></h4>
+                        <h3 class="p-price">R${{$data['price'] }}</h3>
+                        <h4 class="p-stock">Disponível: <span>Google Livros</span></h4>
                     </div>
                     <div class="section-rating d-flex justify-content-end">
                         <div>
@@ -43,7 +45,7 @@
                         </div>
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body">
-                                Quando Coraline entra por uma porta para encontrar outra casa estranhamente semelhante à dela (apenas melhor), as coisas parecem maravilhosas. Mas há outra mãe lá, e outro pai, e eles querem que ela fique e seja sua filhinha. Eles querem mudá-la e nunca deixá-la ir.
+                                {{ Str::limit($data['description'], 100, '...') }}
                             </div>
                         </div>
                     </div>
@@ -67,35 +69,39 @@
                     <ul class="list-features">
                         <li class="list-item">
                             <strong>Título do livro</strong>
-                            <span>Seja foda!</span>
+                            <span>{{$data['title'] }}</span>
                         </li>
                         <li class="list-item">
                             <strong>Autor</strong>
-                            <span>Caio Carneiro</span>
+                            <span>
+                                @foreach ($data['book']['authors'] as $item)
+                                    {{ $item }},
+                                @endforeach
+                            </span>
                         </li>
                         <li class="list-item">
                             <strong>Idioma</strong>
-                            <span>Português</span>
+                            <span>{{$data['book']['language'] }}</span>
                         </li>
                         <li class="list-item">
                             <strong>Editora</strong>
-                            <span>Buzz</span>
+                            <span>{{$data['book']['publisher'] }}</span>
                         </li>
                         <li class="list-item">
                             <strong>Formato</strong>
-                            <span>Papel</span>
+                            <span>{{$data['book']['type'] }}</span>
                         </li>
                         <li class="list-item">
                             <strong>Tipo de narração</strong>
-                            <span>Negócios</span>
+                            <span>{{$data['book']['narration'] }}</span>
                         </li>
                         <li class="list-item">
                             <strong>ISBN</strong>
-                            <span>9788593156298</span>
+                            <span>{{$data['book']['isbn'] }}</span>
                         </li>
                         <li class="list-item">
                             <strong>Ano de publicação</strong>
-                            <span>2019</span>
+                            <span>{{$data['book']['publishedDate'] }}</span>
                         </li>
                     </ul>
                 </div>
@@ -104,12 +110,12 @@
                 <div class="container">
                     <h2 class="title mb-4">Descrição</h2>
                     <div class="item-description-text">
-                        <p>Titulo : Seja foda!<br>Autor : Caio Carneiro <br><br>Sinopse<br>Aposto que você quer, no final da sua vida, olhar para trás, bater no peito com o coração cheio de felicidade, sem falsa modéstia, com plena convicção e serenidade, e dizer: minha vida foi FODA. <br>Mas calma, encontrar este livro é só o começo. <br>Agora, você precisa levá-lo com você. <br>Com ele, você vai aprender comportamentos e atitudes necessários para conquistar, em todos os aspectos da sua vida, resultados incríveis. <br>Ele vai provocar e inspirar você não só a ter o espírito elevado e sonhar com coisas inimagináveis, mas também se tornar consciente do que precisa fazer para realizar cada um desses sonhos. <br>Vamos juntos?<br><br>Editora Buzz<br>1ª edição 2017<br>192 páginas<br>Formato 16 x 23<br>ISBN 9788593156298</p>
+                        <p>{{$data['description'] }}</p>
                     </div>
                 </div>
             </div>
             <div class="col-12 mt-4 product-info">
-                <product-rating></product-rating>
+                <product-rating :product="'{{ $data['id'] }}'"></product-rating>
             </div>
             <div class="col-12 mt-4 product-info">
                 <div class="container perguntas">
@@ -124,17 +130,13 @@
                         </div>
                     </div>
                     <p class="subtitle mt-4">Ou pergunte ao vendedor</p>
-                    <pergunta-vendedor></pergunta-vendedor>
+                    <pergunta-vendedor :product="'{{ $data['id'] }}'"></pergunta-vendedor>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="container-fluid">
-        @include('components.book-slide', ['title' => 'Quem viu este produto também comprou'])
-        @include('components.book-slide', ['title' => 'Produtos patrocinados'])
-        @include('components.book-slide', ['title' => 'Mais Populares'])
-    </div>
+    <div class="container-fluid"></div>
 </section>
 <modal-avaliacao></modal-avaliacao>
 @endsection

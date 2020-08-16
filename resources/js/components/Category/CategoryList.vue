@@ -16,9 +16,15 @@ export default {
   components: {
     Flickity,
   },
+  props: {
+      carouselId: {
+          type: String,
+          default: 'livros',
+      },
+  },
   mounted() {
     axios
-      .get("http://vendomeulivro.local/api/category/find/1")
+      .get(`/category/find/${this.$props.carouselId}`)
       .then((result) => {
         this.books = result.data;
         this.load = true;
@@ -29,6 +35,7 @@ export default {
       flickityOptions: {
         pageDots: false,
         groupCells: true,
+        cellAlign: 'left'
       },
       load: false,
       books: Array(12).fill({}),
