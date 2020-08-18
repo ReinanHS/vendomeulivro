@@ -35,6 +35,7 @@ Vue.component('pergunta-vendedor', require('./components/Product/PerguntaVendedo
 Vue.component('pergunta', require('./components/Product/Pergunta.vue').default);
 Vue.component('product-image', require('./components/Product/ProductImage.vue').default);
 Vue.component('search-box', require('./components/Search/SearchComponent.vue').default);
+Vue.component('navigation-bar', require('./components/NavigationBar.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
