@@ -23,8 +23,13 @@ class MainController extends Controller
         print('oi');
     }
 
+    /**
+     * Função para renderizar a página com informações para vender no site.
+     *
+     * @return view
+    */
     public function vender(){
-        print('oi');
+        return view('pages.store.vender');
     }
 
     public function categorias(){
@@ -104,6 +109,6 @@ class MainController extends Controller
             ],
         ];
 
-        return view('pages.atendimento', ['duvidas' => $duvidas]);
+        return view('pages.store.atendimento', ['duvidas' => $duvidas]);
     }
 }
