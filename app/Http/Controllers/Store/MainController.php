@@ -31,6 +31,11 @@ class MainController extends Controller
         print('oi');
     }
 
+    /**
+     * Função para renderizar a página de atendimento ao cliente.
+     *
+     * @return view
+    */
     public function atendimento(){
 
         $duvidas = [

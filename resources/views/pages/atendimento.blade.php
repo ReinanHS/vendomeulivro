@@ -17,7 +17,7 @@
     <div class="container mt-4">
         <div class="row">
             <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
+                <div class="card mb-4 shadow-sm" data-aos="fade-right">
                     <a href="#sobre/1">
                         <img class="img-fluid" src="{{ 'img/vector/6604.jpg' }}" alt="">
                         <div class="card-body text-center">
@@ -29,7 +29,7 @@
             </div>
 
             <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
+                <div class="card mb-4 shadow-sm" data-aos="fade-left">
                     <a href="#pagamentos/2">
                         <img class="img-fluid" src="{{ 'img/vector/3567818.jpg' }}" alt="">
                         <div class="card-body text-center">
@@ -41,7 +41,7 @@
             </div>
 
             <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
+                <div class="card mb-4 shadow-sm" data-aos="fade-left">
                     <a href="#pagamentos/3">
                         <img class="img-fluid" src="{{ 'img/vector/2887079.jpg' }}" alt="">
                         <div class="card-body text-center">
@@ -53,7 +53,7 @@
             </div>
 
             <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
+                <div class="card mb-4 shadow-sm" data-aos="fade-right">
                     <a href="#vender/1">
                         <img class="img-fluid" src="{{ 'img/vector/19198.jpg' }}" alt="">
                         <div class="card-body text-center">
@@ -65,7 +65,7 @@
             </div>
 
             <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
+                <div class="card mb-4 shadow-sm" data-aos="fade-left">
                     <a href="#parceiro/como-cadastrar-meu-estabelecimento-no-vendomeulivro">
                         <img class="img-fluid" src="{{ 'img/vector/51.svg' }}" alt="">
                         <div class="card-body text-center">
@@ -77,7 +77,7 @@
             </div>
 
             <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
+                <div class="card mb-4 shadow-sm" data-aos="fade-left">
                     <a href="#parceiro/cadastre-se-como-empresa">
                         <img class="img-fluid" src="{{ 'img/vector/21404.jpg' }}" alt="">
                         <div class="card-body text-center">
@@ -94,7 +94,7 @@
 <section class="suporte-canais infoboxes">
     <div class="container pt-5 hero">
         <div class="row align-items-center text-center text-md-left">
-            <div class="col-lg-12 text-center mb-4">
+            <div class="col-lg-12 text-center mb-4" data-aos="zoom-in">
                 <h2 class="mb-3 section-subtitle">Outras formas de conseguir ajuda!</h2>
                 <p>Se você chegou até aqui e ainda está com dúvida você pode estar falando diretamente com um dos nossos atendentes que estarão prontos para lhe ajudar.
                 <br>Horário de atendimento <b>24h por dia</b>, todos os dias da semana, incluindo feriados nacionais.</p>
@@ -102,7 +102,7 @@
             </div>
 
             <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
+                <div class="card mb-4 shadow-sm" data-aos="flip-left">
                     <a target="_blank" href="https://wa.me/557998973746?text=Olá estou com uma dúvida sobre a vendo meu livro:">
                         <img class="img-fluid" src="{{ 'img/vector/410196-PD78Y7-486.jpg' }}" alt="">
                         <div class="card-body text-center">
@@ -114,7 +114,7 @@
             </div>
 
             <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
+                <div class="card mb-4 shadow-sm" data-aos="flip-left">
                     <a href="tel:7998973746">
                         <img class="img-fluid" src="{{ 'img/vector/2427279.jpg' }}" alt="">
                         <div class="card-body text-center">
@@ -126,7 +126,7 @@
             </div>
 
             <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
+                <div class="card mb-4 shadow-sm" data-aos="flip-left">
                     <a target="_blank" href="https://www.instagram.com/vendomeulivro_oficial/">
                         <img class="img-fluid" src="{{ 'img/vector/2232331.jpg' }}" alt="">
                         <div class="card-body text-center">
@@ -176,31 +176,5 @@
 @endsection
 
 @section('content-top')
-<script>
-    document.addEventListener("DOMContentLoaded", function(event) {
-        function goToElement(){
-            let item = window.location.hash;
-            item = item.replace('/', '_')
-            item = item.replace('#', '')
-
-            if(item != "" && $(`#collapse_${item}`).length != 0){
-                $(`#collapse_${item}`).collapse('show')
-
-                console.log($(`#collapse_${item}`))
-
-                $([document.documentElement, document.body]).animate({
-                    scrollTop: $(`#heading_${item}`).offset().top
-                }, 2000);
-            }
-        }
-
-        goToElement()
-
-        $(".infoboxes .card").click(function() {
-            setTimeout(() => {
-                goToElement()
-            }, 100)
-        });
-    });
-</script>
+<script src="{{ url('/js/pages/index.js') }}"></script>
 @endsection

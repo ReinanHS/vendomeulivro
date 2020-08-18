@@ -22,4 +22,7 @@ mix.js('resources/js/app.js', 'public/js')
             })
         ]
     })
+    .scripts([
+        'public/js/pages/atendimento.js',
+    ], 'public/js/pages/index.js')
     .sourceMaps();
