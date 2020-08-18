@@ -1,0 +1,40 @@
+.infoboxes {
+    .card {
+        border-radius: 10px;
+
+        &:hover {
+            transform : translate(0, -4px);
+            box-shadow: 0 16px 32px 0 rgba(19, 49, 109, .15);
+        }
+
+        a {
+            text-decoration: none !important;
+
+            .card-title {
+                color: #222831;
+            }
+
+            .card-text {
+                color: #393e46;
+            }
+        }
+    }
+}
+
+.list-info {
+    margin-bottom: 7em;
+
+    .accordion {
+        .panel-title {
+            margin-top: 0;
+            margin-bottom: 0;
+            color: #393e46;
+
+            svg {
+                color: 00adb5;
+                float: right;
+                margin-right: 15px;
+            }
+        }
+    }
+}

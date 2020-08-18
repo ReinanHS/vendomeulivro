@@ -8,8 +8,8 @@
 
     @include('components.seo', ['seo' => $seo ?? null ])
 
-    @yield('content-top')
     <!-- Scripts -->
+    @yield('content-top')
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
