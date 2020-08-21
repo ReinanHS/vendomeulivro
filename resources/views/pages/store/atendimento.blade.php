@@ -128,7 +128,7 @@
             <div class="col-md-4">
                 <div class="card mb-4 shadow-sm" data-aos="flip-left">
                     <a target="_blank" href="https://www.instagram.com/vendomeulivro_oficial/">
-                        <img class="img-fluid" src="{{ 'img/vector/2232331.jpg' }}" alt="">
+                        <img class="img-fluid" src="{{ url('/img/geral/foto-do-celular.png') }}" alt="">
                         <div class="card-body text-center">
                             <h5 class="card-title">Atendimento pelo instagram</h5>
                             <p class="card-text">Tire todas as suas dúvidas com um dos nossos funcionários pelo Instagram.</p>

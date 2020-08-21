@@ -1,21 +1,22 @@
-body{
+body {
     background-color: #eeeeee;
+    // overflow-x      : hidden;
 }
 
 .btn-vml {
-    color: #fff;
+    color           : #fff;
     background-color: #31acb4;
-    border-color: #31acb4;
+    border-color    : #31acb4;
 }
 
 .btn-vml:hover {
-    color: #fff;
+    color           : #fff;
     background-color: #31acb4;
-    border-color: #2da2aa;
+    border-color    : #2da2aa;
 }
 
 .btn-outline-vml {
-    color: #31acb4;
+    color       : #31acb4;
     border-color: #31acb4;
 }
 
