@@ -28,7 +28,4 @@ Route::group(['namespace' => 'Api'], function() {
     Route::get('product/rating/{id}', 'GoogleBooksController@getProductRating');
     Route::get('product/avaliacao/{id}', 'GoogleBooksController@fakeAvaliacao');
     Route::get('product/pergunta/{id}', 'GoogleBooksController@fakePergunta');
-
-    Route::get('debug', 'GoogleBooksController@fakeAvaliacao');
-
 });

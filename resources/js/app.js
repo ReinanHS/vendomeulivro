@@ -40,6 +40,7 @@ Vue.component('product-image', require('./components/Product/ProductImage.vue').
 Vue.component('search-box', require('./components/Search/SearchComponent.vue').default);
 Vue.component('navigation-bar', require('./components/NavigationBar.vue').default);
 Vue.component('carousel-info', require('./components/Vender/CarouselInfo.vue').default);
+Vue.component('register', require('./components/Auth/Register.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

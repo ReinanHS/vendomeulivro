@@ -24,10 +24,6 @@
                 title="Pesquisar em"
             >
                 <option selected="selected" value="s-todos">Todos os departamentos</option>
-                <option value="s-eletronicos">Eletrônicos</option>
-                <option value="s-esportes">Esportes e Aventura</option>
-                <option value="s-ferramentas">Ferramentas e Materiais de Construção</option>
-                <option value="s-videogames">Games</option>
                 <option value="s-livros">Livros</option>
                 <option value="s-papelaria">Material para Escritório e Papelaria</option>
             </select>
