@@ -18,7 +18,7 @@ class DebugController extends Controller
 
         // dd($data);
 
-        return view('pages.product', ['data' => $data, 'seo' => $this->getSEO($data)]);
+        return view('pages.store.product', ['data' => $data, 'seo' => $this->getSEO($data)]);
     }
 
     public function getSEO($data){

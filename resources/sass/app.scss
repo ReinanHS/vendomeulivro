@@ -3,6 +3,10 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+// Dashboard
+@import '~sleek-dashboard/scss/sleek';
+// Animate
+@import '~aos/dist/aos';
 
 // Variables
 @import 'base/variables';
@@ -20,3 +24,5 @@
 // Layouts
 @import 'layouts/product';
 @import 'layouts/busca';
+@import 'layouts/atendimento';
+@import 'layouts/vender';

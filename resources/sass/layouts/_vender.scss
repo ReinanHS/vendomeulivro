@@ -1,0 +1,184 @@
+.sv-vender {
+    position           : relative;
+    z-index            : 1;
+    background-position: bottom center;
+    background-size    : cover;
+    padding-bottom     : 100px;
+    background-color   : #222831;
+    margin-top         : -1px;
+    color              : #eeeeee;
+    padding-top        : 2em;
+
+    .main-heading {
+        margin-bottom: 50px;
+
+        h1 {
+            font-size    : 75px;
+            margin-bottom: 50px;
+            font-weight  : 700;
+            color        : #eeeeee;
+        }
+
+        p {
+            font-size  : 18px;
+            line-height: 1.75;
+            color      : #eeeeee;
+        }
+    }
+
+    .main-thumb {
+        width       : 100%;
+        display     : block;
+        margin-left : auto;
+        margin-right: auto;
+    }
+
+    @media(max-width: 768px) {
+        .main-heading h1 {
+            font-size    : 60px;
+            margin-bottom: 40px;
+        }
+    }
+
+    @media(max-width: 500px) {
+        .main-heading h1 {
+            font-size: 40px;
+        }
+    }
+}
+
+.sv-infos {
+    background-color: #fff;
+
+    .title-sv {
+        font-weight: 700;
+        font-size  : 56px;
+        color      : #222831;
+
+        @media(max-width: 576px) {
+            & {
+                font-size : 38px;
+                margin-top: 15px;
+            }
+        }
+    }
+
+    .sv-card {
+        h3 {
+            font-weight  : 700;
+            font-size    : 24px;
+            line-height  : 120%;
+            color        : #00adb5;
+            text-align   : left;
+            margin-bottom: 13px;
+        }
+
+        p {
+            font-size  : 20px;
+            line-height: 32px;
+            color      : #393e46;
+        }
+    }
+}
+
+.sv-tour {
+    padding-top: 5em;
+}
+
+.sv-statistics {
+    background-color: #222831;
+
+    .sv-box {
+        padding-top   : 15em;
+        padding-bottom: 15em;
+    }
+
+    .sv-card p,
+    .title-sv {
+        color: #eeeeee !important;
+    }
+}
+
+.efeito-svg {
+    position: absolute;
+    z-index : 3;
+    width   : 100%;
+    bottom  : 0;
+
+    svg {
+        width : 100%;
+        height: 400px;
+    }
+
+    @media(max-width: 576px) {
+        svg {
+            height: 20vh;
+        }
+    }
+}
+
+.custom-shape-divider-1597875159 {
+    position        : relative;
+    width           : 100%;
+    height          : 320px;
+    overflow        : hidden;
+    line-height     : 0;
+    background-color: #fff;
+
+    svg {
+        position: relative;
+        display : block;
+        width   : calc(100% + 0.3px);
+        height  : 169px;
+        fill    : #222831;
+    }
+
+    &.shape-top {
+        transform: rotate(180deg);
+
+        svg {
+            width: calc(170% + 0.3px);
+
+            @media(max-width: 576px) {
+                & {
+                    width: calc(200% + 0.3px);
+                }
+            }
+        }
+    }
+
+    &.shape-bottom {
+        @media(max-width: 576px) {
+            svg {
+                width: calc(250% + 0.3px);
+            }
+        }
+    }
+}
+
+.sv-tabela-precos {
+    padding-bottom: 5em;
+
+    .comparar-planos-box a {
+        text-decoration: none;
+        color          : #393e46;
+
+        &:hover {
+            color: #222831;
+        }
+    }
+
+    table {
+        font-size: 13px;
+
+        .bi.bi-x {
+            color    : #e84545;
+            font-size: 21px;
+        }
+
+        .bi.bi-check {
+            color: #17b978;
+            font-size: 21px;
+        }
+    }
+}

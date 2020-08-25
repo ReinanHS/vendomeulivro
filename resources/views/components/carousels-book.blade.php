@@ -1,4 +1,4 @@
-<div id="bookCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+<div id="bookCarousel" style="margin-top: -1px;" class="carousel slide carousel-fade" data-ride="carousel">
     <div class="carousel-inner">
         @for ($i = 0; $i < sizeof($carousels); $i++)
         <div class="carousel-item @if($i == 0) active @endif d-flex justify-content-center align-self-center" @if(isset($carousels[$i]['background'])) style="background-image: {{ $carousels[$i]['background'] }}; @if(isset($carousels[$i]['background-size'])) background-size: {{ $carousels[$i]['background-size'] }};@endif"@endif>

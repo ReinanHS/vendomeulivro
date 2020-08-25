@@ -12,7 +12,7 @@ class SearchController extends Controller
 {
 
     public function busca($q){
-        return view('pages.busca', [
+        return view('pages.store.busca', [
             'url' => Str::slug($q, '-')
         ]);
     }

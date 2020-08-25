@@ -1,0 +1,46 @@
+.accordion-area {
+    margin-top: 5px;
+    border-top: 2px solid #e1e1e1;
+
+    .card {
+        border       : initial;
+        border-bottom: 2px solid #e1e1e1 !important;
+
+        .card-header {
+            background-color: initial;
+            border-bottom   : initial;
+            padding         : 0;
+
+            button {
+                text-align      : left;
+                position        : relative;
+                width           : 100%;
+                font-size       : 14px;
+                font-weight     : 700;
+                color           : #414141;
+                padding         : 0;
+                text-transform  : uppercase;
+                line-height     : 1;
+                cursor          : pointer;
+                border          : none;
+                min-height      : 69px;
+                background-color: transparent;
+                border-radius   : 0;
+            }
+        }
+    }
+}
+
+.section-subtitle {
+    font-weight: 300;
+    color      : #31acb4;
+    font-size  : 48px;
+}
+
+.line-shape{
+    width           : 80px;
+    height          : 2px;
+    background-color: #00adb5;
+    margin-top      : 15px;
+    margin-left     : calc(50% - 40px);
+}

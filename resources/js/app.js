@@ -10,6 +10,9 @@ window.Vue = require('vue');
 
 import store from './store'
 
+import AOS from 'aos';
+AOS.init();
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -35,6 +38,9 @@ Vue.component('pergunta-vendedor', require('./components/Product/PerguntaVendedo
 Vue.component('pergunta', require('./components/Product/Pergunta.vue').default);
 Vue.component('product-image', require('./components/Product/ProductImage.vue').default);
 Vue.component('search-box', require('./components/Search/SearchComponent.vue').default);
+Vue.component('navigation-bar', require('./components/NavigationBar.vue').default);
+Vue.component('carousel-info', require('./components/Vender/CarouselInfo.vue').default);
+Vue.component('register', require('./components/Auth/Register.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -50,15 +56,15 @@ window.onload = function () {
 
     const cardImages = Array.prototype.slice.call(document.querySelectorAll('.card-container .card-top'))
 
-    if(cardImages.length > 0){
+    if (cardImages.length > 0) {
         cardImages.map(card => {
             const cardImage = card.querySelector('.card-image a img');
 
-            if(cardImage != null){
+            if (cardImage != null) {
                 let imageLoad = new Image();
                 imageLoad.src = cardImage.src;
 
-                imageLoad.onload = function() {
+                imageLoad.onload = function () {
                     card.classList.remove('placeholdershimmer')
                 }
             }
