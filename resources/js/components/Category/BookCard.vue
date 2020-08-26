@@ -15,7 +15,7 @@
                     <div class="card-image-effect"></div>
                 </a>
             </div>
-            <book-card-action-btn v-if="load" :book="{like: false, id: book.id, code: 'reinan'}" />
+            <ActionsButtons v-if="load" :book="{like: false, id: book.id, code: 'reinan'}" />
         </div>
         <div class="card-body">
             <a

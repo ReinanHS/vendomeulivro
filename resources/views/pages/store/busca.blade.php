@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<search-box q="{{ str_replace('-', ' ', $url) }}"></search-box>
+<search-component q="{{ str_replace('-', ' ', $url) }}"></search-component>
 @endsection
 
 @section('content-top')

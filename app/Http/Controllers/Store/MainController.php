@@ -7,20 +7,40 @@ use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
+    /**
+     * Função para renderizar a página que exibe todas as ofertas do dia.
+     *
+     * @return view
+    */
     public function ofertas(){
-        print('ofertas');
+        return view('pages.store.ofertas');
     }
 
+    /**
+     * Função para renderizar a página com os lancamentos.
+     *
+     * @return view
+    */
     public function lancamentos(){
-        print('lancamentos');
+        return view('pages.store.lancamentos');
     }
 
+    /**
+     * Função para renderizar a página com o histórico do cliente.
+     *
+     * @return view
+    */
     public function historico(){
-        print('Historico');
+        return view('pages.store.historico');
     }
 
+    /**
+     * Função para renderizar a página das lojas oficiais.
+     *
+     * @return view
+    */
     public function lojasOficiais(){
-        print('oi');
+        return view('pages.store.lojas-oficiais');
     }
 
     /**
@@ -33,7 +53,7 @@ class MainController extends Controller
     }
 
     public function categorias(){
-        print('oi');
+        return view('pages.store.categorias');
     }
 
     /**

@@ -28,6 +28,13 @@ Route::get('categorias', 'Store\MainController@categorias');
 Route::get('atendimento-ao-cliente', 'Store\MainController@atendimento');
 
 
+
+Route::get('dashboard', function() {
+    return view('pages.dashboard.home');
+});
+
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
